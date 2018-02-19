@@ -47,7 +47,19 @@ UserSchema.statics.findByCredentials = function(username, password) {
   });
 };
 
-// Reencrypts password if changed password / new passwordY
+UserSchema.statics.getById = function(id) {
+  const User = this;
+
+  return User.findById(id).then(user => {
+    if (!user) {
+      return Promise.reject(); // eslint-disable-line no-undef
+    }
+
+    return user;
+  });
+};
+
+// Reencrypts password if changed password / new password
 UserSchema.pre('save', function (next) {
   const user = this;
 

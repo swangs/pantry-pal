@@ -29,6 +29,7 @@ app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./config/passport')(passport);
 
 // Routes
 app.get('/', (req, res) => {
@@ -38,6 +39,6 @@ app.get('/', (req, res) => {
 app.use('/users', users);
 
 // Start Server
-app.listen(port, () => { 
-  console.log(`Server at ${port} started.`); 
+app.listen(port, () => {
+  console.log(`Server at ${port} started.`);
 });
