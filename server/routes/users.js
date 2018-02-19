@@ -16,8 +16,14 @@ router.post('/signup', (req, res) => {
   });
 });
 
-router.get('/authenticate', (req, res) => {
+router.post('/login', (req, res) => {
+  const body = _.pick(req.body, ['username', 'password']);
 
+  User.findByCredentials(body.username, body.password).then(user => {
+    res.send(user);
+  }).catch(e => {
+    res.status(401).send();
+  });
 });
 
 router.get('/profile', (req, res) => {

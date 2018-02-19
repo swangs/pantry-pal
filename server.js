@@ -21,12 +21,14 @@ const app = express();
 const users = require('./server/routes/users');
 
 const port = process.env.PORT || 3000;
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Middlewares
 app.use(bodyParser.json());
 app.use(cors());
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get('/', (req, res) => {
