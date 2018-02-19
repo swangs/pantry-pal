@@ -26,8 +26,12 @@ Spoonacular API for recipe data
 * Set up node backend and user authentication
 
 ## Group Work Breakdown
+
+### Over The Weekend
 Jonathan: Work on Node
+
 Katie: Work on MongoDB
+
 Steven: Work on Angular
 
 ### Day 1
