@@ -1,6 +1,6 @@
 h2 {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 25px;
   margin: 15px 30px;
   color: grey;
 }
@@ -12,7 +12,7 @@ h2 {
 
 h3 {
   color: #607D8B;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 li {
@@ -20,7 +20,7 @@ li {
 }
 
 img {
-  max-width: 25vw;
+  width: 30vw;
   max-height: 25vw;
   border-radius: 15px;
 }
