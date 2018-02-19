@@ -1,3 +1,10 @@
-<p>
-  recipe-details works!
-</p>
+<div class="recipe-detail" *ngIf="recipe">
+  <div class="recipe-image">
+    <img src="{{recipe.imageUrl}}" alt="">
+  </div>
+  <div class="recipe-text">
+    <h2>{{ recipe.name | uppercase }}</h2>
+    <p>{{recipe.directions}}</p>
+  </div>
+  <!-- <button (click)="goBack()">go back</button> -->
+</div>

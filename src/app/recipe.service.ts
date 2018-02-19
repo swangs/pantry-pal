@@ -9,14 +9,13 @@ import { of } from 'rxjs/observable/of';
 export class RecipeService {
 
   constructor() { }
-  // 
-  // getRecipes(): Recipe[] {
-  //   return RECIPES;
-  // }
 
   getRecipes(): Observable<Recipe[]> {
-    // Todo: send the message _after_ fetching the heroes
     return of(RECIPES);
+  }
+
+  getRecipe(id: number): Observable<Recipe> {
+    return of(RECIPES.find(recipe => recipe.id === id));
   }
 
 }

@@ -1,0 +1,25 @@
+.recipe-detail {
+  display: flex;
+}
+
+img {
+  margin: 10px;
+  width: 30vw;
+  max-height: 30vw;
+  border-radius: 15px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 25px;
+  margin: 15px 30px;
+  color: grey;
+}
+
+p {
+  font-weight: 400;
+  font-size: 25px;
+  color: #607D8B;
+  margin: 15px 30px;
+
+}
