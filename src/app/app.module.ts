@@ -8,6 +8,7 @@ import { IngredientsComponent } from './ingredients/ingredients.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { RecipeService } from './recipe.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

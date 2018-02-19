@@ -1,4 +1,4 @@
-class Recipes {
+class Recipe {
   id: number,
   name: string,
   imageUrl: string,
@@ -6,7 +6,7 @@ class Recipes {
 
 }
 
-export const RECIPES: Recipes[] = [
+export const RECIPES: Recipe[] = [
   {
     id: 1,
     name: 'fried rice',
