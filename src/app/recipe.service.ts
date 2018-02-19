@@ -1,17 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Recipe } from './data/recipes.ts';
-import { RECIPES } from './data/recipes.ts';
+import { Recipe } from './data/recipes';
+import { RECIPES } from './data/recipes';
+import { INGREDIENTS } from './data/ingredients';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-var unirest = require('unirest');
-const axios = require('axios');
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+    headers: new HttpHeaders({
+      'Accept': 'application/json',
+      'X-Mashape-Key': ''
+     })
+};
 
 @Injectable()
 export class RecipeService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getRecipes(): Observable<Recipe[]> {
     return of(RECIPES);
@@ -21,24 +29,19 @@ export class RecipeService {
     return of(RECIPES.find(recipe => recipe.id === id));
   }
 
-  // getRecipe(id: number): Observable<Recipe> {
-  //   return unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/479101/information?includeNutrition=false")
-  //   .header("X-Mashape-Key", "95888ikv6vmshpwMcAndhn7AvAMyp1H51Qnjsn7XTBMDjflTIq")
-  //   .header("Accept", "application/json")
-  //   .end(function (result) {
-  //     console.log(result);
-  //   });
-  // }
+  getRecipes(): Observable<Recipe[]> {
+    let ingredients = [];
+    for (let i = 0; i < INGREDIENTS.length; i++) {
+      ingredients.push(INGREDIENTS[i].name)
+    }
+    ingredients = ingredients.join(',');
+    ingredients = encodeURIComponent(ingredients);
+    console.log(ingredients)
+    return this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=10&ranking=2`, httpOptions)
+  }
 
-  // getRecipe(id: number): Observable<Recipe> {
-  //   return of(axios ({
-  //     method: 'get',
-  //     url: `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=false`
-  //     headers: {
-  //       'X-Mashape-Key': '95888ikv6vmshpwMcAndhn7AvAMyp1H51Qnjsn7XTBMDjflTIq',
-  //       'Accept': 'application/json'
-  //      },
-  //   }).then(response => return response.data)
-  // }
+  getRecipe(id: number): Observable<Recipe> {
+    return this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=false`, httpOptions);
+  }
 
 }
