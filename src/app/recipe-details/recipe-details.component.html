@@ -1,10 +1,10 @@
 <div class="recipe-detail" *ngIf="recipe">
   <div class="recipe-image">
-    <img src="{{recipe.imageUrl}}" alt="">
+    <img src="{{recipe.image}}" alt="">
   </div>
   <div class="recipe-text">
-    <h2>{{ recipe.name | uppercase }}</h2>
-    <p>{{recipe.directions}}</p>
+    <h2>{{ recipe.title | uppercase }}</h2>
+    <p>{{recipe.instructions}}</p>
     <button (click)="goBack()">go back</button>
   </div>
 </div>
