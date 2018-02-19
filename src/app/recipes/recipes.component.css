@@ -16,6 +16,7 @@ h3 {
 }
 
 li {
+  cursor: pointer;
   margin: 10px;
 }
 

@@ -13,9 +13,11 @@ h1 {
   font-weight: 700;
   color: #607D8B;
   margin: auto 0px auto 25px;
+  cursor: pointer;
 }
 
 button {
+  cursor: pointer;
   height: 25px;
   margin: auto 25px auto 0px;
   border-radius: 5px;
