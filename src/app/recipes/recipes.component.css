@@ -1,0 +1,26 @@
+h2 {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 15px 30px;
+  color: grey;
+}
+
+.recipes-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h3 {
+  color: #607D8B;
+  font-size: 20px;
+}
+
+li {
+  margin: 10px;
+}
+
+img {
+  max-width: 25vw;
+  max-height: 25vw;
+  border-radius: 15px;
+}
