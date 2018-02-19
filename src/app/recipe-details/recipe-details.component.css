@@ -9,10 +9,14 @@ img {
   border-radius: 15px;
 }
 
+.recipe-text {
+  margin: 0px 30px;
+}
+
 h2 {
   font-weight: 700;
   font-size: 25px;
-  margin: 15px 30px;
+  margin: 15px 0px;
   color: grey;
 }
 
@@ -20,6 +24,9 @@ p {
   font-weight: 400;
   font-size: 25px;
   color: #607D8B;
-  margin: 15px 30px;
+  margin: 15px 0px;
+}
 
+button {
+  cursor: pointer;
 }
