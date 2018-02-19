@@ -1,8 +1,8 @@
 class Recipe {
-  id: number,
-  name: string,
-  imageUrl: string,
-  directions: string,
+  id: number;
+  name: string;
+  imageUrl: string;
+  directions: string;
 
 }
 
