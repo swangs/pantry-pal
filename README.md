@@ -29,3 +29,9 @@ Spoonacular API for recipe data
 Jonathan: Work on Node
 Katie: Work on MongoDB
 Steven: Work on Angular
+
+### Day 1
+Combine Angular Frontend and Node Backend - Steven, Katie, and Jonathon
+
+### Day 2
+TBD
