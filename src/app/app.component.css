@@ -3,7 +3,7 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 50px;
-  box-shadow: 0px 1px 6px 0px #909090;
+  box-shadow: 0px 2px 10px 0px #909090;
   z-index: 10;
   position: relative;
 }

@@ -3,10 +3,11 @@
 }
 
 img {
-  margin: 10px;
+  margin: 15px 30px;
   width: 30vw;
   max-height: 30vw;
   border-radius: 15px;
+  box-shadow: 2px 2px 5px 1px grey;
 }
 
 .recipe-text {
