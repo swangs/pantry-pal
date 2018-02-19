@@ -1,0 +1,18 @@
+.user-page {
+  display: flex;
+  overflow-y: scroll;
+  height: calc(100vh - 50px);
+}
+
+.ingredients {
+  min-width: 300px;
+}
+.ingredients h1 {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 15px 30px;
+}
+
+.recipes {
+  width: calc(100vw - 400px);
+}
