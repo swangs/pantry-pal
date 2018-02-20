@@ -1,0 +1,34 @@
+{
+  "name": "pantry-pal",
+  "version": "1.0.0",
+  "description": "## Background and Overview Unused food and leftovers are a problem everyone faces. Ever find yourself unsure of what you can make with that half full bottle of teriyaki sauce? $165 billion worth of food is wasted each year by Americans. Pantry Pal solves this problem by searching a recipe database and determining which recipes are readily available to make. Users can customize their list of current ingredients and find new or favorite recipes to make.",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
+    "lodash": "^4.17.5",
+    "mongodb": "^3.0.2",
+    "mongoose": "^5.0.6",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swangs/pantry-pal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swangs/pantry-pal/issues"
+  },
+  "homepage": "https://github.com/swangs/pantry-pal#readme"
+}
