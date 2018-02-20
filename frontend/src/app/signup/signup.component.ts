@@ -22,7 +22,6 @@ export class SignupComponent implements OnInit {
     };
 
     if (!this.validateService.validateFields(user)) {
-      console.log('Fill out all fields.');
       return false;
     }
   }

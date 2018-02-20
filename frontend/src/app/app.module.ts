@@ -2,10 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';  // replaces previous Http service
 import { FormsModule } from '@angular/forms';
-import {
-  RouterModule,
-  Routes
-} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -19,10 +15,6 @@ import { SignupComponent } from './signup/signup.component';
 
 import { ValidateService } from './validate.service';
 
-const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }
-];
 
 @NgModule({
   declarations: [
@@ -39,7 +31,6 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     RecipeService,

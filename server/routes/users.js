@@ -7,9 +7,7 @@ const _ = require('lodash');
 const config = require('../../config/database');
 const User = require('../models/user');
 
-const authenticate = passport.authenticate('jwt', {
-  session: false
-});
+const authenticate = passport.authenticate('jwt', { session: false });
 
 // Signup
 router.post('/', (req, res) => {
@@ -27,13 +25,8 @@ router.post('/login', (req, res) => {
   const body = _.pick(req.body, ['username', 'password']);
 
   User.findByCredentials(body.username, body.password).then(user => {
-    const access = 'auth';
-    const token = jwt.sign({
-      _id: user._id.toHexString(),
-      access
-    }, config.secret, {
-      expiresIn: 604800 // 1 week
-    });
+    // 1 week expiry
+    const token = jwt.sign({ user }, config.secret, { expiresIn: 604800 });
 
     res.json({
       user,
