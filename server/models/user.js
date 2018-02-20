@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const config = require('../../config/database');
 
 const UserSchema = mongoose.Schema({
   username: {
@@ -25,6 +28,13 @@ UserSchema.methods.toJSON = function () {
   return _.pick(userObject, ['_id', 'username']);
 };
 
+UserSchema.methods.generateToken = function () {
+  const user = this;
+
+  // 1 week expiration
+  const token = jwt.sign({ user }, config.secret, { expiresIn: 604800 });
+  return `JWT ${token}`;
+};
 
 // "Class" methods
 UserSchema.statics.findByCredentials = function(username, password) {

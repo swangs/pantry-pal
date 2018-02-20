@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 
-const config = require('../../config/database');
 const User = require('../models/user');
 
 const authenticate = passport.authenticate('jwt', { session: false });
@@ -12,10 +10,16 @@ const authenticate = passport.authenticate('jwt', { session: false });
 // Signup
 router.post('/', (req, res) => {
   const body = _.pick(req.body, ['username', 'password']);
-  const user = new User(body);
+  const newUser = new User(body);
 
-  user.save().then(() => {
-    res.send(user);
+  newUser.save().then(() => {
+    const user = newUser.toJSON();
+    const token = newUser.generateToken();
+
+    res.json({
+      user,
+      token
+    });
   }).catch((e) => {
     res.status(400).send(e);
   });
@@ -25,12 +29,12 @@ router.post('/login', (req, res) => {
   const body = _.pick(req.body, ['username', 'password']);
 
   User.findByCredentials(body.username, body.password).then(user => {
-    // 1 week expiry
-    const token = jwt.sign({ user }, config.secret, { expiresIn: 604800 });
+    console.log(user);
+    const token = user.generateToken();
 
     res.json({
       user,
-      token: `JWT ${token}`
+      token
     });
   }).catch(() => {
     res.status(401).json({
