@@ -23,5 +23,5 @@ export const INGREDIENTS: Ingredients[] = [
   { id: 17, name: 'chocolate' },
   { id: 18, name: 'oranges' },
   { id: 19, name: 'bananas' },
-  { id: 20, name: 'sour cream' },
+  { id: 20, name: 'sour cream' }
 ];
