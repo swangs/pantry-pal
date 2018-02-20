@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { RecipeService }  from '../recipe.service';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -10,7 +10,6 @@ import { RecipeService }  from '../recipe.service';
   styleUrls: ['./recipe-details.component.css']
 })
 export class RecipeDetailsComponent implements OnInit {
-
   constructor(
     private route: ActivatedRoute,
     private recipeService: RecipeService,

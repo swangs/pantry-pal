@@ -10,9 +10,7 @@ export const RECIPES: Recipe[] = [
     id: 1,
     title: 'fried rice',
     image: 'http://www.seriouseats.com/recipes/images/2016/01/20160206-fried-rice-food-lab-68-1500x1125.jpg',
-    instructions: 'fry everything together',
-    test: "random",
-    test2: "asdf",
+    instructions: 'fry everything together'
   },
   {
     id: 2,
