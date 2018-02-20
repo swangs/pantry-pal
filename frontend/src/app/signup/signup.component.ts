@@ -33,13 +33,14 @@ export class SignupComponent implements OnInit {
       return false;
     }
 
-    this.authService.signupUser(user).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['/user']);
-    },
-    error => {
-      console.log(error);
-      this.router.navigate(['/signup']);
-    });
+    this.authService.signupUser(user).subscribe(
+      data => {
+        this.authService.storeUserData(data['token'], data['user']);
+        this.router.navigate(['/user']);
+      },
+      error => {
+        this.router.navigate(['/signup']);
+      }
+    );
   }
 }
