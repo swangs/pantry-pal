@@ -1,7 +1,7 @@
-<h2>My Ingredients</h2>
+<h2 class="ingredients-title">My Ingredients</h2 >
 <ul class="ingredients-list">
-  <li *ngFor="let ingredient of ingredients">
-    <h3>{{ingredient.name}}</h3>
+  <li class="ingredients-item" *ngFor="let ingredient of ingredients">
+    <h3 class="ingredient-name">{{ingredient.name}}</h3>
   </li>
 </ul>
-<input type="text" name="" value="" placeholder="Add Ingredient">
+<input class="ingredients-input" type="text" name="" value="" placeholder="Add Ingredient">

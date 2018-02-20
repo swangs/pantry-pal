@@ -1,23 +1,22 @@
 <div class="recipe-detail" *ngIf="recipe">
   <div class="recipe-sidebar">
-    <h2>{{ recipe.title | uppercase }}</h2>
+    <h2 class="recipe-title" >{{ recipe.title | uppercase }}</h2>
     <img class="recipe-img" src="{{recipe.image}}" alt="">
     <ul class="ingredients-list">
-      <li *ngFor="let ingredient of recipe.extendedIngredients">
+      <li class="ingredient-item" *ngFor="let ingredient of recipe.extendedIngredients">
         <img class="ingredient-img" src="{{ingredient.image}}" alt="">
         <p>{{ingredient.originalString}}</p>
       </li>
     </ul>
   </div>
   <div class="recipe-main">
-    <h3>Directions</h3>
+    <h3 class="directions-title">Directions</h3>
     <ul *ngFor="let instructions of recipe.analyzedInstructions">
       <li *ngFor="let steps of instructions.steps">
         <p>{{steps.step}}</p>
       </li>
     </ul>
 
-    <!-- <p>{{recipe.instructions}}</p> -->
     <button (click)="goBack()">go back</button>
   </div>
 </div>

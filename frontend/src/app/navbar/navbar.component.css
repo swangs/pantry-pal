@@ -1,4 +1,4 @@
-nav {
+.nav {
   display: flex;
   justify-content: space-between;
   height: 50px;
@@ -10,7 +10,7 @@ nav {
   background-color: #FFFFFF;
 }
 
-h1 {
+.nav-title {
   font-size: 25px;
   font-weight: 700;
   color: #607D8B;
@@ -18,7 +18,7 @@ h1 {
   cursor: pointer;
 }
 
-button {
+.nav-button {
   cursor: pointer;
   height: 25px;
   margin: auto 25px auto 0px;
