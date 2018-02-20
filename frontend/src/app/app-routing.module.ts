@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserComponent } from './user/user.component.ts';
-import { RecipeDetailsComponent }  from './recipe-details/recipe-details.component.ts';
+import { UserComponent } from './user/user.component';
+import { RecipeDetailsComponent }  from './recipe-details/recipe-details.component';
 
 
 
