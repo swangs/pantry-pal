@@ -29,7 +29,7 @@ app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./config/passport')(passport);
+require('./server/config/passport')(passport);
 
 // Routes
 app.get('/', (req, res) => {
