@@ -29,7 +29,6 @@ router.post('/login', (req, res) => {
   const body = _.pick(req.body, ['username', 'password']);
 
   User.findByCredentials(body.username, body.password).then(user => {
-    console.log(user);
     const token = user.generateToken();
 
     res.json({
