@@ -1,5 +1,6 @@
 <div class="recipe-detail" *ngIf="recipe">
   <div class="recipe-sidebar">
+    <h2>{{ recipe.title | uppercase }}</h2>
     <img class="recipe-img" src="{{recipe.image}}" alt="">
     <ul class="ingredients-list">
       <li *ngFor="let ingredient of recipe.extendedIngredients">
@@ -9,8 +10,7 @@
     </ul>
   </div>
   <div class="recipe-main">
-    <h2>{{ recipe.title | uppercase }}</h2>
-
+    <h3>Directions</h3>
     <ul *ngFor="let instructions of recipe.analyzedInstructions">
       <li *ngFor="let steps of instructions.steps">
         <p>{{steps.step}}</p>
