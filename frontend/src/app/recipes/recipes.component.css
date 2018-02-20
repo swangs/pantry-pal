@@ -13,6 +13,7 @@ h2 {
 h3 {
   color: #607D8B;
   font-size: 18px;
+  margin: 5px 0px;
 }
 
 li {
@@ -20,6 +21,9 @@ li {
   height: 350px;
   cursor: pointer;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 img {

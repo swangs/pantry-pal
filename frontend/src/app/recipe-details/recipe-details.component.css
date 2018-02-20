@@ -1,5 +1,7 @@
 .recipe-detail {
   display: flex;
+  overflow-y: scroll;
+  height: calc(100vh - 50px);
 }
 
 .recipe-sidebar {
