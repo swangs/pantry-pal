@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
 import { ValidateService } from './validate.service';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ValidateService } from './validate.service';
   ],
   providers: [
     RecipeService,
-    ValidateService
+    ValidateService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

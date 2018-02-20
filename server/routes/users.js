@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
 
   user.save().then(() => {
     res.send(user);
-  }).catch(e => {
+  }).catch((e) => {
     res.status(400).send(e);
   });
 });
