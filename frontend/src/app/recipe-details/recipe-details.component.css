@@ -1,8 +1,17 @@
 .recipe-detail {
   display: flex;
+  overflow-y: scroll;
+  height: calc(100vh - 50px);
 }
 
-img {
+.recipe-sidebar {
+}
+
+.ingredients-list li {
+  display: flex;
+}
+
+.recipe-img {
   margin: 15px 30px;
   width: 30vw;
   max-height: 30vw;
@@ -10,13 +19,19 @@ img {
   box-shadow: 2px 2px 5px 1px grey;
 }
 
-.recipe-text {
+.ingredient-img {
+  width: 60px;
+  max-height: 60px;
+  margin: 5px 15px 5px 30px;
+}
+
+.recipe-main {
   margin: 0px 30px;
 }
 
 h2 {
   font-weight: 700;
-  font-size: 25px;
+  font-size: 45px;
   margin: 15px 0px;
   color: grey;
 }

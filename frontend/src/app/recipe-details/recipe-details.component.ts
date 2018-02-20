@@ -3,13 +3,18 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { RecipeService } from '../recipe.service';
+import { Recipe } from '../data/recipes';
+
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.css']
 })
+
 export class RecipeDetailsComponent implements OnInit {
+  recipe: Recipe;
+
   constructor(
     private route: ActivatedRoute,
     private recipeService: RecipeService,
