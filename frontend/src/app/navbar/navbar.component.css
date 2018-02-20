@@ -1,0 +1,25 @@
+nav {
+  /* background: #FF0000; */
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  box-shadow: 0px 2px 10px 0px #909090;
+  z-index: 10;
+  position: relative;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #607D8B;
+  margin: auto 0px auto 25px;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  height: 25px;
+  margin: auto 25px auto 0px;
+  border-radius: 5px;
+}
+
