@@ -20,8 +20,7 @@
 .ingredient-img {
   width: 60px;
   max-height: 60px;
-  margin: 5px;
-  margin-left: 30px;
+  margin: 5px 15px 5px 30px;
 }
 
 .recipe-main {
@@ -30,7 +29,7 @@
 
 h2 {
   font-weight: 700;
-  font-size: 30px;
+  font-size: 45px;
   margin: 15px 0px;
   color: grey;
 }

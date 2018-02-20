@@ -10,7 +10,14 @@
   </div>
   <div class="recipe-main">
     <h2>{{ recipe.title | uppercase }}</h2>
-    <p>{{recipe.instructions}}</p>
+
+    <ul *ngFor="let instructions of recipe.analyzedInstructions">
+      <li *ngFor="let steps of instructions.steps">
+        <p>{{steps.step}}</p>
+      </li>
+    </ul>
+
+    <!-- <p>{{recipe.instructions}}</p> -->
     <button (click)="goBack()">go back</button>
   </div>
 </div>
