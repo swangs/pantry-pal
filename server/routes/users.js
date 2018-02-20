@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.get('/profile', authenticate, (req, res) => {
+router.get('/user', authenticate, (req, res) => {
   res.json({
     user: req.user
   });
