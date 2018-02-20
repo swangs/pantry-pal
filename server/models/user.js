@@ -10,6 +10,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
     minlength: 1,
+    maxlength: 10,
     trim: true,
     unique: true,
   },

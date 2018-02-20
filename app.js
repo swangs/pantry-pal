@@ -33,10 +33,14 @@ require('./server/config/passport')(passport);
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('<h1>Test</h1>');
+  res.send('<h1>Pantry Pal</h1>');
 });
 
 app.use('/users', users);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 // Start Server
 app.listen(port, () => {
