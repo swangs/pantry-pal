@@ -2,6 +2,7 @@
 <ul class="recipes-list">
   <li routerLink="/recipes/{{recipe.id}}" *ngFor="let recipe of recipes">
     <h3>{{recipe.title}}</h3>
+    <h3>Missing Ingredients: {{recipe.missedIngredientCount}}</h3>
     <img src="{{recipe.image}}" alt="">
   </li>
 </ul>

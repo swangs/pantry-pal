@@ -12,16 +12,20 @@ h2 {
 
 h3 {
   color: #607D8B;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 li {
+  width: 350px;
+  height: 350px;
   cursor: pointer;
   margin: 10px;
 }
 
 img {
-  width: 30vw;
-  max-height: 30vw;
+  width: 300px;
+  max-height: 300px;
+  margin: 20px 0px;
   border-radius: 15px;
+  box-shadow: 2px 2px 5px 1px grey;
 }

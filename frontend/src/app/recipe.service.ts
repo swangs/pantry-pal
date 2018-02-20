@@ -37,8 +37,7 @@ export class RecipeService {
     }
     ingredients = ingredients.join(',');
     ingredients = encodeURIComponent(ingredients);
-    console.log(ingredients)
-    return this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=10&ranking=2`, httpOptions)
+    return this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredients}&limitLicense=false&number=20&ranking=2`, httpOptions)
   }
 
   getRecipe(id: number): Observable<Recipe> {
