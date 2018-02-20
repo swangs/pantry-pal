@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 
 import { ValidateService } from './validate.service';
 import { AuthService } from './auth.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AuthService } from './auth.service';
     RecipesComponent,
     RecipeDetailsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

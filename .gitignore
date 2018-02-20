@@ -42,3 +42,5 @@ database.js
 # System Files
 .DS_Store
 Thumbs.db
+
+api.ts

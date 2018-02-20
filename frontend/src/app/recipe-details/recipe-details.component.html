@@ -1,10 +1,23 @@
 <div class="recipe-detail" *ngIf="recipe">
-  <div class="recipe-image">
-    <img src="{{recipe.image}}" alt="">
+  <div class="recipe-sidebar">
+    <img class="recipe-img" src="{{recipe.image}}" alt="">
+    <ul class="ingredients-list">
+      <li *ngFor="let ingredient of recipe.extendedIngredients">
+        <img class="ingredient-img" src="{{ingredient.image}}" alt="">
+        <p>{{ingredient.originalString}}</p>
+      </li>
+    </ul>
   </div>
-  <div class="recipe-text">
+  <div class="recipe-main">
     <h2>{{ recipe.title | uppercase }}</h2>
-    <p>{{recipe.instructions}}</p>
+
+    <ul *ngFor="let instructions of recipe.analyzedInstructions">
+      <li *ngFor="let steps of instructions.steps">
+        <p>{{steps.step}}</p>
+      </li>
+    </ul>
+
+    <!-- <p>{{recipe.instructions}}</p> -->
     <button (click)="goBack()">go back</button>
   </div>
 </div>
