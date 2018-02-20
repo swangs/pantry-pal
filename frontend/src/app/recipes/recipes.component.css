@@ -10,6 +10,10 @@ h2 {
   flex-wrap: wrap;
 }
 
+.text {
+  width: 80%;
+}
+
 h3 {
   color: #607D8B;
   font-size: 18px;
@@ -23,13 +27,14 @@ li {
   margin: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  /* background: grey; */
+  border-radius: 15px;
 }
 
 img {
   width: 300px;
   max-height: 300px;
-  margin: 20px 0px;
   border-radius: 15px;
   box-shadow: 2px 2px 5px 1px grey;
 }

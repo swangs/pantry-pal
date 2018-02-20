@@ -1,10 +1,10 @@
 <h2>Recipes</h2>
 <ul class="recipes-list">
   <li routerLink="/recipes/{{recipe.id}}" *ngFor="let recipe of recipes">
+    <img src="{{recipe.image}}" alt="">
     <div class="text">
       <h3>{{recipe.title}}</h3>
       <h3>Missing Ingredients: {{recipe.missedIngredientCount}}</h3>
     </div>
-    <img src="{{recipe.image}}" alt="">
   </li>
 </ul>

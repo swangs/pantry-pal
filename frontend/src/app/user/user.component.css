@@ -1,11 +1,13 @@
 .user-page {
   display: flex;
   overflow-y: scroll;
-  height: calc(100vh - 50px);
+  margin-top: 50px;
 }
 
 .ingredients {
-  min-width: 300px;
+  width: 300px;
+  overflow: auto;
+  box-shadow: 2px 0px 10px 0px #909090;
 }
 .ingredients h1 {
   font-size: 40px;

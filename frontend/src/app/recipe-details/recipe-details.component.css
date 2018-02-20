@@ -1,10 +1,13 @@
 .recipe-detail {
   display: flex;
   overflow-y: scroll;
-  height: calc(100vh - 50px);
+  margin-top: 50px;
+  /* height: calc(100vh - 50px); */
 }
 
 .recipe-sidebar {
+  min-width: 500px;
+  box-shadow: 2px 0px 10px 0px #909090;
 }
 
 .ingredients-list li {
@@ -13,7 +16,7 @@
 
 .recipe-img {
   margin: 15px 30px;
-  width: 30vw;
+  width: 450px;
   max-height: 30vw;
   border-radius: 15px;
   box-shadow: 2px 2px 5px 1px grey;
@@ -32,13 +35,13 @@
 h2 {
   font-weight: 700;
   font-size: 45px;
-  margin: 15px 0px;
+  margin: 15px 30px;
   color: grey;
 }
 
 p {
   font-weight: 400;
-  font-size: 25px;
+  font-size: 18px;
   color: #607D8B;
   margin: 15px 0px;
 }
