@@ -37,5 +37,5 @@ Steven: Work on Angular
 ### Day 1
 Combine Angular Frontend and Node Backend - Steven, Katie, and Jonathon
 
-### Day 2
+### Day 2/3/4/5/6
 TBD
