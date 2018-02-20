@@ -6,7 +6,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 
-const config = require('./config/database');
+const config = require('./server/config/database');
 
 mongoose.connect(config.database);
 mongoose.connection.on('connected', () => {

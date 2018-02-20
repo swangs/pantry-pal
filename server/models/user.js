@@ -3,7 +3,7 @@ const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const config = require('../../config/database');
+const config = require('../config/database');
 
 const UserSchema = mongoose.Schema({
   username: {
