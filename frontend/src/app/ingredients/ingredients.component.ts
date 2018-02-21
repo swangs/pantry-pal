@@ -8,11 +8,21 @@ import { INGREDIENTS } from '../data/ingredients';
 })
 export class IngredientsComponent implements OnInit {
 
+  ingredient = {
+    id: 1,
+    name: "",
+  };
+
   constructor() { }
 
   ngOnInit() {
   }
 
   ingredients = INGREDIENTS;
+
+  addIngredient($event): void {
+    this.ingredients.push(this.ingredient);
+    console.log(this.ingredients)
+  }
 
 }

@@ -4,4 +4,9 @@
     <h3 class="ingredient-name">{{ingredient.name}}</h3>
   </li>
 </ul>
-<input class="ingredients-input" type="text" name="" value="" placeholder="Add Ingredient">
+<input class="ingredients-input"
+  type="text"
+  name=""
+  placeholder="Add Ingredient"
+  (keyup.enter)="addIngredient($event)"
+  [(ngModel)]="ingredient.name" >
