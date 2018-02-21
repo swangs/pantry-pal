@@ -3,6 +3,7 @@ import { mashapeKey } from './api';
 import { Recipe } from './data/recipes';
 // import { RECIPES } from './data/recipes';
 import { INGREDIENTS } from './data/ingredients';
+// import { INGREDIENTS } from './ingredients/ingredients.component';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
