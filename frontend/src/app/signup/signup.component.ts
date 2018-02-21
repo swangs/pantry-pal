@@ -22,6 +22,10 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  closeModal() {
+    document.getElementsByClassName("signup-modal")[0].classList.remove("md-show")
+  }
+
   handleSignup() {
 
     const user = {
