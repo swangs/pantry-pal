@@ -8,6 +8,7 @@ import { Recipe } from '../data/recipes';
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css']
 })
+
 export class RecipesComponent implements OnInit {
   recipes: Recipe[];
 
@@ -21,6 +22,4 @@ export class RecipesComponent implements OnInit {
     this.recipeService.getRecipes()
       .subscribe(recipes => this.recipes = recipes);
   }
-
-
 }

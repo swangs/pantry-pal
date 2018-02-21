@@ -1,13 +1,19 @@
-<h2>Sign Up!</h2>
+<div class="signup-modal md-effect-1" id="modal-1">
+	<div class="md-content">
+    <h2>Sign Up!</h2>
 
-<form (submit)="handleSignup()">
-  <div>
-    <label>Username</label>
-    <input type="text" [(ngModel)]="username" name="username" />
-  </div>
-  <div>
-    <label>Password</label>
-    <input type="password" [(ngModel)]="password" name="password" />
-  </div>
-  <input type="submit" value="Sign Up" />
-</form>
+    <form (submit)="handleSignup()">
+      <div>
+        <label>Username</label>
+        <input type="text" [(ngModel)]="username" name="username" />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" [(ngModel)]="password" name="password" />
+      </div>
+      <input type="submit" value="Sign Up" />
+    </form>
+	</div>
+</div>
+
+<div class="md-overlay" (click)="closeModal()"></div>

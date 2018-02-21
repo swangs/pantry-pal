@@ -1,14 +1,16 @@
-nav {
-  /* background: #FF0000; */
+.nav {
   display: flex;
   justify-content: space-between;
   height: 50px;
+  width: 100vw;
   box-shadow: 0px 2px 10px 0px #909090;
   z-index: 10;
-  position: relative;
+  position: fixed;
+  top: 0;
+  background-color: #FFFFFF;
 }
 
-h1 {
+.nav-title {
   font-size: 25px;
   font-weight: 700;
   color: #607D8B;
@@ -16,10 +18,9 @@ h1 {
   cursor: pointer;
 }
 
-button {
+.nav-button {
   cursor: pointer;
   height: 25px;
   margin: auto 25px auto 0px;
   border-radius: 5px;
 }
-

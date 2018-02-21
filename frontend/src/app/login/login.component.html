@@ -1,13 +1,19 @@
-<h2>Log In!</h2>
+<div class="login-modal md-effect-1" id="modal-2">
+	<div class="md-content">
+    <h2>Log In!</h2>
 
-<form (submit)="handleLogin()">
-  <div>
-    <label>Username</label>
-    <input type="text" [(ngModel)]="username" name="username" />
-  </div>
-  <div>
-    <label>Password</label>
-    <input type="password" [(ngModel)]="password" name="password" />
-  </div>
-  <input type="submit" value="Log In" />
-</form>
+    <form (submit)="handleLogin()">
+      <div>
+        <label>Username</label>
+        <input type="text" [(ngModel)]="username" name="username" />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" [(ngModel)]="password" name="password" />
+      </div>
+      <input type="submit" value="Log In" />
+    </form>
+	</div>
+</div>
+
+<div class="md-overlay" (click)="closeModal()"></div>
