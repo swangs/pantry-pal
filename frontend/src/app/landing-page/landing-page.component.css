@@ -49,6 +49,7 @@
   letter-spacing: 0.04em;
   padding-top: 30px;
   text-align: center;
+  text-shadow: 0px 0px 1px black;
 }
 
 .buttons {
