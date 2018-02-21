@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
@@ -12,21 +13,42 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post('http://localhost:3000/users/', user, { headers });
+    return this.http.post('http://localhost:3000/api/users/', user, { headers });
   }
 
   loginUser(user) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post('http://localhost:3000/users/login', user, { headers });
+    return this.http.post('http://localhost:3000/api/users/login', user, { headers });
+  }
+
+  userPage() {
+    this.loadToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.authToken
+    });
+
+    return this.http.get('http://localhost:3000/api/users/user', { headers });
   }
 
   storeUserData(token, user) {
-    localStorage.setItem('id_token', token);
+    localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+  }
+
+  loadToken() {
+    const token = localStorage.getItem('token');
+    this.authToken = token;
+  }
+
+  // Checks if token is stored in localstorage
+  loggedIn() {
+    return tokenNotExpired();
   }
 
   logout() {

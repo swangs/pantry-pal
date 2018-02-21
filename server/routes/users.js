@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const config = require('../config/database');
 const _ = require('lodash');
+const { ObjectID } = require('mongodb');
 
 const User = require('../models/user');
 
@@ -42,12 +45,54 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.get('/profile', authenticate, (req, res) => {
-  res.json({
-    user: req.user
-  });
 
+router.get('/:id', authenticate, (req, res) => {
+  const id = req.params.id;
+
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send();
+  }
+
+  User.findById(id).then(currentUser => {
+    if(!currentUser) {
+      return res.status(404).send();
+    }
+
+
+    res.send(currentUser);
+  }).catch(e => {
+    console.log(e);
+    res.status(400).send(e);
+  });
 });
 
+// Update user's ingredients array
+router.patch('/:id', authenticate, (req, res) => {
+  const id = req.params.id;
+
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send();
+  }
+
+  User.findById(id).then(currentUser => {
+    if (!currentUser) {
+      return res.status(404).send();
+    }
+
+    // Guard to protect not-currentuser from manipulating data
+    const auth = req.headers.authorization.slice(4);
+    const verify = jwt.verify(auth, config.secret);
+
+    if (id !== verify._id) {
+      return res.status(401).send();
+    }
+
+    currentUser.save().then(updatedUser => {
+      res.send(updatedUser);
+    });
+  }).catch(e => {
+    res.status(400).send(e);
+  });
+});
 
 module.exports = router;

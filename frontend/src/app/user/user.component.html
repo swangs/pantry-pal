@@ -1,6 +1,6 @@
 <div class="user-page">
   <div class="ingredients">
-    <h1>{{currentUser.name}}</h1>
+    <h1 *ngIf="user">{{user.username}}</h1>
     <app-ingredients></app-ingredients>
   </div>
   <div class="recipes">

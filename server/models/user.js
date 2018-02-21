@@ -5,11 +5,12 @@ const jwt = require('jsonwebtoken');
 
 const config = require('../config/database');
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
     minlength: 1,
+    maxlength: 10,
     trim: true,
     unique: true,
   },
@@ -17,6 +18,9 @@ const UserSchema = mongoose.Schema({
     type: String,
     require: true,
     minlength: 6
+  },
+  ingredients: {
+    type: Array,
   }
 });
 
@@ -25,7 +29,7 @@ UserSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
 
-  return _.pick(userObject, ['_id', 'username']);
+  return _.pick(userObject, ['_id', 'username', 'ingredients']);
 };
 
 UserSchema.methods.generateToken = function () {
