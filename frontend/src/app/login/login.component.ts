@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  closeModal() {
+    document.getElementsByClassName("login-modal")[0].classList.remove("md-show")
+  }
+
   handleLogin() {
     const user = {
       username: this.username,
