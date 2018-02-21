@@ -1,3 +1,16 @@
 .landing-page {
   margin-top: 50px;
+  width: 100%;
+  height: 1000px;
+}
+
+#title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.md-trigger {
+  width: 500px;
+  height: 500px;
 }
