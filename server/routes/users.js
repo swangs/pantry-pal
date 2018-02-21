@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const _ = require('lodash');
+const { ObjectID } = require('mongodb');
 
 const User = require('../models/user');
 
@@ -38,6 +39,23 @@ router.post('/login', (req, res) => {
   }).catch(() => {
     res.status(401).json({
       msg: 'Invalid username or password'
+    });
+  });
+});
+
+router.post('/recipes', (req, res) => {
+  const recipe = _.pick(req.body.recipe, ['name']);
+  const user = _.pick(req.body.user, ['_id']);
+  console.log(req);
+
+  User.findById(ObjectID(req.body.user._id)).then(founduser => {
+    console.log(founduser);
+    founduser.ingredients.push(recipe);
+
+    founduser.save().then(newuser => {
+      res.json(newuser);
+    }).catch(e => {
+      res.status(400).json(e);
     });
   });
 });

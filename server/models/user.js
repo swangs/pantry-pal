@@ -4,8 +4,18 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const config = require('../config/database');
+// const IngredientSchema = require('./ingredient');
 
-const UserSchema = mongoose.Schema({
+const IngredientSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true
+  }
+});
+
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -18,7 +28,8 @@ const UserSchema = mongoose.Schema({
     type: String,
     require: true,
     minlength: 6
-  }
+  },
+  ingredients: [IngredientSchema]
 });
 
 // Instance methods
@@ -26,7 +37,8 @@ UserSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
 
-  return _.pick(userObject, ['_id', 'username']);
+  // return _.pick(userObject, ['_id', 'username', 'ingredients']);
+  return userObject;
 };
 
 UserSchema.methods.generateToken = function () {
