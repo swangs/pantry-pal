@@ -1,5 +1,6 @@
 .landing-page {
   margin-top: 50px;
+  padding: 50px;
   width: 100%;
   height: 1000px;
   background-color: #659DBD;
@@ -15,18 +16,55 @@
   flex-direction: column;
 }
 
+#welcome {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 15px;
+  font-weight: 100;
+  padding-bottom: 2px;
+  border-bottom: 1px solid white;
+}
+
 #title {
   font-family: 'Roboto Slab', serif;
-  font-size: 50px;
+  font-size: 100px;
   font-weight: 700;
+  line-height: 100px;
 }
 
 #description {
   font-family: 'Roboto Slab', serif;
-  font-size: 25px;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  padding-top: 30px;
+}
+
+.buttons {
+  padding: 30px;
 }
 
 .md-trigger {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 65px;
+  border-radius: 40px;
+  background-color: #659DBD;
+  border: 3px solid white;
+  color: white;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  margin: 0px 20px;
+}
+
+.md-trigger:hover {
+  width: 200px;
+  height: 65px;
+  border-radius: 40px;
+  background-color: white;
+  border: 3px solid white;
+  color: #659DBD;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  margin: 0px 20px;
 }
