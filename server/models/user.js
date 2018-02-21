@@ -4,16 +4,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const config = require('../config/database');
-// const IngredientSchema = require('./ingredient');
-
-const IngredientSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-    unique: true
-  }
-});
 
 const UserSchema = new mongoose.Schema({
   username: {
@@ -29,7 +19,9 @@ const UserSchema = new mongoose.Schema({
     require: true,
     minlength: 6
   },
-  ingredients: [IngredientSchema]
+  ingredients: {
+    type: Array,
+  }
 });
 
 // Instance methods

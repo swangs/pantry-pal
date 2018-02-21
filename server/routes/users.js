@@ -43,20 +43,16 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.post('/recipes', (req, res) => {
-  const recipe = _.pick(req.body.recipe, ['name']);
-  const user = _.pick(req.body.user, ['_id']);
-  console.log(req);
+// Update user's ingredients array
+router.patch('/ingredients', (req, res) => {
+  User.findById(req.body._id).then(currentUser => {
 
-  User.findById(ObjectID(req.body.user._id)).then(founduser => {
-    console.log(founduser);
-    founduser.ingredients.push(recipe);
-
-    founduser.save().then(newuser => {
-      res.json(newuser);
-    }).catch(e => {
-      res.status(400).json(e);
+    currentUser.save().then(updatedUser => {
+      res.json({ ingredients: updatedUser.ingredients });
     });
+  }).catch(e => {
+    console.log(e);
+    res.status(400).send(e);
   });
 });
 
@@ -64,7 +60,6 @@ router.get('/user', authenticate, (req, res) => {
   res.json({
     user: req.user
   });
-
 });
 
 

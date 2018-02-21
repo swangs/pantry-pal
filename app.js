@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
   res.send('<h1>Pantry Pal</h1>');
 });
 
-app.use('/users', users);
+app.use('/api/users', users);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));

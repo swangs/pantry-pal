@@ -13,14 +13,14 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post('http://localhost:3000/users/', user, { headers });
+    return this.http.post('http://localhost:3000/api/users/', user, { headers });
   }
 
   loginUser(user) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post('http://localhost:3000/users/login', user, { headers });
+    return this.http.post('http://localhost:3000/api/users/login', user, { headers });
   }
 
   userPage() {
@@ -31,7 +31,7 @@ export class AuthService {
       'Authorization': this.authToken
     });
 
-    return this.http.get('http://localhost:3000/users/user', { headers });
+    return this.http.get('http://localhost:3000/api/users/user', { headers });
   }
 
   storeUserData(token, user) {
