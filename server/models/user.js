@@ -29,8 +29,7 @@ UserSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
 
-  // return _.pick(userObject, ['_id', 'username', 'ingredients']);
-  return userObject;
+  return _.pick(userObject, ['_id', 'username', 'ingredients']);
 };
 
 UserSchema.methods.generateToken = function () {

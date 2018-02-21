@@ -9,6 +9,7 @@ const _ = require('lodash');
 const config = require('./server/config/database');
 
 mongoose.connect(config.database);
+mongoose.Promise = global.Promise;
 mongoose.connection.on('connected', () => {
   console.log(`Connected to ${config.database}`);
 });

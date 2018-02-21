@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const config = require('../config/database');
 const _ = require('lodash');
 const { ObjectID } = require('mongodb');
 
@@ -43,24 +45,54 @@ router.post('/login', (req, res) => {
   });
 });
 
-// Update user's ingredients array
-router.patch('/ingredients', (req, res) => {
-  User.findById(req.body._id).then(currentUser => {
 
-    currentUser.save().then(updatedUser => {
-      res.json({ ingredients: updatedUser.ingredients });
-    });
+router.get('/:id', authenticate, (req, res) => {
+  const id = req.params.id;
+
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send();
+  }
+
+  User.findById(id).then(currentUser => {
+    if(!currentUser) {
+      return res.status(404).send();
+    }
+
+
+    res.send(currentUser);
   }).catch(e => {
     console.log(e);
     res.status(400).send(e);
   });
 });
 
-router.get('/user', authenticate, (req, res) => {
-  res.json({
-    user: req.user
+// Update user's ingredients array
+router.patch('/:id', authenticate, (req, res) => {
+  const id = req.params.id;
+
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send();
+  }
+
+  User.findById(id).then(currentUser => {
+    if (!currentUser) {
+      return res.status(404).send();
+    }
+
+    // Guard to protect not-currentuser from manipulating data
+    const auth = req.headers.authorization.slice(4);
+    const verify = jwt.verify(auth, config.secret);
+
+    if (id !== verify._id) {
+      return res.status(401).send();
+    }
+
+    currentUser.save().then(updatedUser => {
+      res.send(updatedUser);
+    });
+  }).catch(e => {
+    res.status(400).send(e);
   });
 });
-
 
 module.exports = router;
