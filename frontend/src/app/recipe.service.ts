@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { mashapeKey } from './api';
+import { mashapeKey } from './api';
 import { Recipe } from './data/recipes';
 // import { RECIPES } from './data/recipes';
 import { INGREDIENTS } from './data/ingredients';
@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 const httpOptions = {
     headers: new HttpHeaders({
       'Accept': 'application/json',
-      // 'X-Mashape-Key': mashapeKey
+      'X-Mashape-Key': mashapeKey
      })
 };
 
@@ -39,12 +39,12 @@ export class RecipeService {
     const ingredientsString = ingredients.join(',');
     const ingredientsURI = encodeURIComponent(ingredientsString);
     /* tslint:disable-next-line */
-    // return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=false&number=5&ranking=2`, httpOptions);
+    return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=false&number=5&ranking=2`, httpOptions);
   }
 
   getRecipe(id: number): Observable<Recipe> {
     /* tslint:disable-next-line */
-    // return this.http.get<Recipe>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=false`, httpOptions);
+    return this.http.get<Recipe>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=false`, httpOptions);
   }
 
 }
