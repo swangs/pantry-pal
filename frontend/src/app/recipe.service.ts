@@ -35,12 +35,12 @@ export class RecipeService {
     return of(INGREDIENTS)
   }
 
-  // getIngredients(): Observable<string[]>{
-  //   return this.http.get<string[]>('/api/user/ingredients');
+  // getIngredients(userid): Observable<string[]>{
+  //   return this.http.get<string[]>(`/api/users/${userid}`);
   // }
   //
-  // updateIngredients(ingredients): Observable<string[]>{
-  //   return this.http.patch<string[]>('/api/user/ingredients', ingredients);
+  // updateIngredients(ingredients, userid): Observable<string[]>{
+  //   return this.http.patch<string[]>(`/api/users/${userid}`, ingredients);
   // }
 
   getRecipes(ingredients): Observable<Recipe[]> {

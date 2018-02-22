@@ -62,15 +62,15 @@ export class UserComponent implements OnInit {
       }).subscribe(recipes => {this.recipes = recipes});
   }
 
-  updateIngredients(): void {
-    this.recipeService.getIngredients()
-      .flatMap(ingredients => {
-        this.ingredients = ingredients
-        return this.recipeService.getRecipes(this.ingredients);
-      }).subscribe({
-        next: recipes => {this.recipes = recipes},
-      });
-  }
+  // updateIngredients(): void {
+  //   this.recipeService.getIngredients()
+  //     .flatMap(ingredients => {
+  //       this.ingredients = ingredients
+  //       return this.recipeService.getRecipes(this.ingredients);
+  //     }).subscribe({
+  //       next: recipes => {this.recipes = recipes},
+  //     });
+  // }
 
   // ingredient = {
   //   id: 1,
@@ -82,12 +82,12 @@ export class UserComponent implements OnInit {
   addIngredient($event): void {
     if (!this.ingredients.includes(this.ingredient)) {
       // this.ingredients.push(this.ingredient)
-    //   this.recipeService.updateIngredients(this.ingredients)
-    //     .flatMap(ingredients => this.updateIngredients());
+    //   this.recipeService.updateIngredients(this.ingredients, this.user.id)
+    //     .flatMap(ingredients => this.getIngredients(this.user.id));
       INGREDIENTS.push(this.ingredient);
     }
     this.ingredient = ""
-    this.updateIngredients();
+    this.getIngredients();
   }
 
 
