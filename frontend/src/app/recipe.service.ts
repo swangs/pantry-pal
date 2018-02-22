@@ -31,23 +31,29 @@ export class RecipeService {
   //   return of(RECIPES.find(recipe => recipe.id === id));
   // }
 
-  getIngredients(): Observable<Ingredients[]>{
+  getIngredients(): Observable<string[]>{
     return of(INGREDIENTS)
   }
 
+  // getIngredients(): Observable<string[]>{
+  //   return this.http.get<string[]>('/api/user/ingredients');
+  // }
+
+  // updateIngredients(ingredients): Observable<string[]>{
+  //   return this.http.patch<string[]>('/api/user/ingredients', ingredients);
+  // }
+
   getRecipes(ingredients): Observable<Recipe[]> {
-    const ingredientsArray = [];
-    for (let i = 0; i < ingredients.length; i++) {
-      ingredientsArray.push(ingredients[i].name);
-    }
-    const ingredientsString = ingredientsArray.join(',');
+    // const ingredientsArray = [];
+    // for (let i = 0; i < ingredients.length; i++) {
+    //   ingredientsArray.push(ingredients[i].name);
+    // }
+    const ingredientsString = ingredients.join(',');
     const ingredientsURI = encodeURIComponent(ingredientsString);
-    /* tslint:disable-next-line */
     return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=false&number=5&ranking=2`, httpOptions);
   }
 
   getRecipe(id: number): Observable<Recipe> {
-    /* tslint:disable-next-line */
     return this.http.get<Recipe>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=false`, httpOptions);
   }
 

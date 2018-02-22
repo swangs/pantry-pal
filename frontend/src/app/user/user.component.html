@@ -5,7 +5,7 @@
     <h2 class="ingredients-title">My Ingredients</h2 >
     <ul class="ingredients-list">
       <li class="ingredients-item" *ngFor="let ingredient of ingredients">
-        <h3 class="ingredient-name">{{ingredient.name}}</h3>
+        <h3 class="ingredient-name">{{ingredient}}</h3>
       </li>
     </ul>
     <input class="ingredients-input"
@@ -13,7 +13,7 @@
       name=""
       placeholder="Add Ingredient"
       (keyup.enter)="addIngredient($event)"
-      [(ngModel)]="ingredient.name" >
+      [(ngModel)]="ingredient" >
 
   </div>
   <div class="recipes">

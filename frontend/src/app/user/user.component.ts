@@ -17,9 +17,8 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class UserComponent implements OnInit {
   user: Object;
-  ingredients: Ingredients[];
+  ingredients: string[];
   recipes: Recipe[];
-  random = Math.random();
 
   constructor(
     private recipeService: RecipeService,
@@ -28,19 +27,18 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this);
+    // console.log(this);
     // this.interval = setInterval(() => {
     //      console.log(this.recipes);
     //  }, 5000);
     this.getIngredients();
-    console.log(this.ingredients);
-    console.log(this.recipes);
+    // console.log(this.ingredients);
+
     this.authService.userPage().subscribe(
       data => {
         this.user = data['user'];
       },
       err => {
-        console.log(err);
         return false;
       }
     );
@@ -67,26 +65,25 @@ export class UserComponent implements OnInit {
   updateIngredients(): void {
     this.recipeService.getIngredients()
       .flatMap(ingredients => {
-        console.log(this);
         this.ingredients = ingredients
-        console.log(this.ingredients);
         return this.recipeService.getRecipes(this.ingredients);
       }).subscribe({
         next: recipes => {this.recipes = recipes},
       });
   }
 
-  ingredient = {
-    id: 1,
-    name: "",
-  };
+  // ingredient = {
+  //   id: 1,
+  //   name: "",
+  // };
+
+  ingredient = "";
 
   addIngredient($event): void {
-    INGREDIENTS.push(this.ingredient);
-    this.ingredient = {
-      id: 1,
-      name: "",
+    if (!this.ingredients.includes(this.ingredient)) {
+      INGREDIENTS.push(this.ingredient);
     }
+    this.ingredient = ""
     this.updateIngredients();
   }
 
