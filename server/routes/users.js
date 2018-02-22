@@ -41,7 +41,11 @@ router.post('/login', (req, res) => {
     });
   }).catch(() => {
     res.status(401).json({
-      msg: 'Invalid username or password'
+      errors: {
+        validation: {
+          message: 'Invalid username or password'          
+        }
+      }
     });
   });
 });
@@ -52,7 +56,7 @@ router.get('/:id', authenticate, (req, res) => {
 
   if (!ObjectID.isValid(id)) {
     return res.status(404).send({
-      msg: 'ID not valid'
+      message: 'ID not valid'
     });
   }
 
@@ -75,14 +79,14 @@ router.patch('/:id', authenticate, (req, res) => {
 
   if (!ObjectID.isValid(id)) {
     return res.status(404).json({
-      msg: 'ID not valid'
+      message: 'ID not valid'
     });
   }
 
   User.findById(id).then(currentUser => {
     if (!currentUser) {
       return res.status(404).send({
-        msg: 'User error'
+        message: 'User error'
       });
     }
 
@@ -92,7 +96,7 @@ router.patch('/:id', authenticate, (req, res) => {
 
     if (id !== verify._id) {
       return res.status(401).json({
-        msg: 'Unauthorized'
+        message: 'Unauthorized'
       });
     }
 

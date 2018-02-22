@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ValidateService } from '../validate.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private validateService: ValidateService,
     private authService: AuthService
   ) { }
 

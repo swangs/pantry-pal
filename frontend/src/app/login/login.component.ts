@@ -25,6 +25,14 @@ export class LoginComponent implements OnInit {
     document.getElementsByClassName('login-modal')[0].classList.remove('md-show');
   }
 
+  handleError({ error }) {
+    if (error && error.errors) {
+      Object.values(error.errors).forEach(errMsg => {
+        console.log(errMsg['message']);
+      });
+    }
+  }
+
   handleLogin() {
     const user = {
       username: this.username,
@@ -36,8 +44,8 @@ export class LoginComponent implements OnInit {
         this.authService.storeUserData(data['token'], data['user']);
         this.router.navigate(['/user']);
       },
-      error => {
-        this.router.navigate(['/login']);
+      err => {
+        this.handleError(err);
       }
     );
   }

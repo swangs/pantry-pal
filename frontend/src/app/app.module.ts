@@ -13,7 +13,6 @@ import { RecipeService } from './recipe.service';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
-import { ValidateService } from './validate.service';
 import { AuthService } from './auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -39,7 +38,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
   ],
   providers: [
     RecipeService,
-    ValidateService,
     AuthService
   ],
   bootstrap: [AppComponent]
