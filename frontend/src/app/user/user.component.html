@@ -6,6 +6,7 @@
     <ul class="ingredients-list">
       <li class="ingredients-item" *ngFor="let ingredient of ingredients">
         <h3 class="ingredient-name">{{ingredient}}</h3>
+        <button class="remove-ingredient" type="button" (click)="removeIngredient(ingredient)">X</button>
       </li>
     </ul>
     <input class="ingredients-input"

@@ -90,5 +90,14 @@ export class UserComponent implements OnInit {
     this.getIngredients();
   }
 
+  removeIngredient(name): void {
+    let index = this.ingredients.indexOf(name);
+    this.ingredients.splice(index, 1);
+    // this.recipeService.updateIngredients(this.ingredients, this.user.id)
+    //   .flatMap(ingredients => this.getIngredients(this.user.id));
+    this.getIngredients();
+  }
+
+
 
 }
