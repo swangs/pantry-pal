@@ -132,10 +132,12 @@
   background-color: #8d8741;
   color: white;
   display: flex;
+
 }
 
 .footer img {
   width: 50px;
   height: 50px;
+  object-fit: cover;
   border-radius: 20%;
 }
