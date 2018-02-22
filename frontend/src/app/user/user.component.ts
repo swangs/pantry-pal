@@ -81,6 +81,9 @@ export class UserComponent implements OnInit {
 
   addIngredient($event): void {
     if (!this.ingredients.includes(this.ingredient)) {
+      // this.ingredients.push(this.ingredient)
+    //   this.recipeService.updateIngredients(this.ingredients)
+    //     .flatMap(ingredients => this.updateIngredients());
       INGREDIENTS.push(this.ingredient);
     }
     this.ingredient = ""
