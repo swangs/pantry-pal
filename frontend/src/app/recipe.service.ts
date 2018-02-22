@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { mashapeKey } from './api';
 import { Recipe } from './data/recipes';
 // import { RECIPES } from './data/recipes';
-import { INGREDIENTS } from './data/ingredients';
+import { Ingredients, INGREDIENTS } from './data/ingredients';
 // import { INGREDIENTS } from './ingredients/ingredients.component';
 
 import { Observable } from 'rxjs/Observable';
@@ -31,12 +31,16 @@ export class RecipeService {
   //   return of(RECIPES.find(recipe => recipe.id === id));
   // }
 
-  getRecipes(): Observable<Recipe[]> {
-    const ingredients = [];
-    for (let i = 0; i < INGREDIENTS.length; i++) {
-      ingredients.push(INGREDIENTS[i].name);
+  getIngredients(): Observable<Ingredients[]>{
+    return of(INGREDIENTS)
+  }
+
+  getRecipes(ingredients): Observable<Recipe[]> {
+    const ingredientsArray = [];
+    for (let i = 0; i < ingredients.length; i++) {
+      ingredientsArray.push(ingredients[i].name);
     }
-    const ingredientsString = ingredients.join(',');
+    const ingredientsString = ingredientsArray.join(',');
     const ingredientsURI = encodeURIComponent(ingredientsString);
     /* tslint:disable-next-line */
     return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=false&number=5&ranking=2`, httpOptions);
