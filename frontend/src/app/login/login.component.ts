@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   closeModal() {
-    document.getElementsByClassName("login-modal")[0].classList.remove("md-show")
+    document.getElementsByClassName('login-modal')[0].classList.remove('md-show');
   }
 
   handleLogin() {

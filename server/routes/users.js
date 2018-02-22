@@ -14,11 +14,12 @@ const authenticate = passport.authenticate('jwt', { session: false });
 router.post('/', (req, res) => {
   const body = _.pick(req.body, ['username', 'password']);
   const newUser = new User(body);
+  const existingUser = User.find({ username: body.username });
 
-  newUser.save().then(() => {
+  newUser.save().then(e => {
     const user = newUser.toJSON();
     const token = newUser.generateToken();
-
+    console.log(e);
     res.json({
       user,
       token
@@ -50,7 +51,9 @@ router.get('/:id', authenticate, (req, res) => {
   const id = req.params.id;
 
   if (!ObjectID.isValid(id)) {
-    return res.status(404).send();
+    return res.status(404).send({
+      msg: 'ID not valid'
+    });
   }
 
   User.findById(id).then(currentUser => {
@@ -71,12 +74,16 @@ router.patch('/:id', authenticate, (req, res) => {
   const id = req.params.id;
 
   if (!ObjectID.isValid(id)) {
-    return res.status(404).send();
+    return res.status(404).json({
+      msg: 'ID not valid'
+    });
   }
 
   User.findById(id).then(currentUser => {
     if (!currentUser) {
-      return res.status(404).send();
+      return res.status(404).send({
+        msg: 'User error'
+      });
     }
 
     // Guard to protect not-currentuser from manipulating data
@@ -84,7 +91,9 @@ router.patch('/:id', authenticate, (req, res) => {
     const verify = jwt.verify(auth, config.secret);
 
     if (id !== verify._id) {
-      return res.status(401).send();
+      return res.status(401).json({
+        msg: 'Unauthorized'
+      });
     }
 
     currentUser.save().then(updatedUser => {

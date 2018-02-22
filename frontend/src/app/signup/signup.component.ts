@@ -23,19 +23,22 @@ export class SignupComponent implements OnInit {
   }
 
   closeModal() {
-    document.getElementsByClassName("signup-modal")[0].classList.remove("md-show")
+    document.getElementsByClassName('signup-modal')[0].classList.remove('md-show');
+  }
+
+  handleError({ error }) {
+    if (error && error.errors) {
+      Object.values(error.errors).forEach(errMsg => {
+        console.log(errMsg['message']);
+      });
+    }
   }
 
   handleSignup() {
-
     const user = {
       username: this.username,
       password: this.password
     };
-
-    if (!this.validateService.validateFields(user)) {
-      return false;
-    }
 
     this.authService.signupUser(user).subscribe(
       data => {
@@ -43,7 +46,7 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/user']);
       },
       error => {
-        this.router.navigate(['/signup']);
+        this.handleError(error);
       }
     );
   }
