@@ -58,13 +58,12 @@
 
 .remove-ingredient:hover {
   cursor: pointer;
-  /* background-color: #FF543E;
-  color: #FFFFFF; */
   border: 1px solid #FF543E;
 }
 
 .ingredients-input {
   height: 1.8em;
-  width: 50%;
+  width: 240px;
+  padding: 0px 5px;
   margin: 15px 30px;
 }
