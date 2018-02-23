@@ -1,10 +1,12 @@
 .login-modal {
 	position: fixed;
-	top: 50%;
+	color: black;
+	top: 40%;
 	left: 50%;
-	width: 50%;
-  width: 350px;
-  height: 350px;
+	width: 30%;
+	height: 30%;
+	min-width: 500px;
+	min-height: 300px;
 	z-index: 2000;
 	visibility: hidden;
 	backface-visibility: hidden;
@@ -69,10 +71,87 @@
 }
 
 .md-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	background: #FFFFFF;
 	position: relative;
-  border-radius: 15px;
+	border-radius: 15px;
+	height: 100%;
+	padding: 50px;
+	border: 5px solid #659dbd;
+}
+
+.md-content p {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	font-size: 40px;
+	color: #659dbd;
+	text-align: center;
+	width: 100%;
+	padding: 20px;
+	border-bottom: 1px solid #d3d3d3;
+}
+
+.login-form {
+	padding: 20px;
+	width: 100%;
+	min-width: 400px;
+}
+
+.login-username-total {
+	width: 100%;
+	display: flex;
+	padding-bottom: 20px;
+}
+
+#login-username {
+	font-family: 'Roboto Slab', serif;
+	width: 22%;
+	font-size: 17px;
+	padding-top: 5px;
+}
+
+#login-username-input {
+	width: 78%;
+	height: 25px;
+	padding: 0px 5px;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	font-size: 14px;
+	letter-spacing: 0.07em;
+	color: black;
+}
+
+.login-password-total {
+	width: 100%;
+	display: flex;
+	padding-bottom: 20px;
+}
+
+#login-password {
+	font-family: 'Roboto Slab', serif;
+	width: 22%;
+	font-size: 17px;
+	padding-top: 5px;
+}
+
+#login-password-input {
+	width: 78%;
+	height: 25px;
+	padding: 0px 5px;
+}
+
+input[type=submit], input[type=reset] {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	font-size: 20px;
+	letter-spacing: 0.07em;
+    background-color: #659dbd;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+	width: 100%;
 }
