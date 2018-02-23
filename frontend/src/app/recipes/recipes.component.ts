@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../data/recipes';
 
@@ -10,16 +10,27 @@ import { Recipe } from '../data/recipes';
 })
 
 export class RecipesComponent implements OnInit {
-  recipes: Recipe[];
+  @Input() recipes: Recipe[];
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-    this.getRecipes();
+    // this.getRecipes();
+    // this.interval = setInterval(() => {
+    //      // this.refreshData();
+    //      console.log(this.recipes);
+    //  }, 5000);
   }
 
-  getRecipes(): void {
-    this.recipeService.getRecipes()
-      .subscribe(recipes => this.recipes = recipes);
-  }
+  // refreshData(){
+  //     this.recipeService.getRecipes(this.ingredients)
+  //         .subscribe(data => {
+  //             this.recipes = data;
+  //         });
+  // }
+
+  // getRecipes(): void {
+  //   this.recipeService.getRecipes()
+  //     .subscribe(recipes => this.recipes = recipes);
+  // }
 }
