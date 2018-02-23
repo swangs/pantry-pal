@@ -50,6 +50,11 @@ router.post('/login', (req, res) => {
   });
 });
 
+router.get('/user', authenticate, (req, res) => {
+  res.json({
+    user: req.user
+  });
+});
 
 router.get('/:id', authenticate, (req, res) => {
   const id = req.params.id;
@@ -107,5 +112,6 @@ router.patch('/:id', authenticate, (req, res) => {
     res.status(400).send(e);
   });
 });
+
 
 module.exports = router;
