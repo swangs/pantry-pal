@@ -68,7 +68,6 @@ router.get('/:id', authenticate, (req, res) => {
       return res.status(404).send();
     }
 
-
     res.send(currentUser.ingredients);
   }).catch(e => {
     res.status(400).send(e);
@@ -110,6 +109,5 @@ router.patch('/:id', authenticate, (req, res) => {
     res.status(400).send(e);
   });
 });
-
 
 module.exports = router;

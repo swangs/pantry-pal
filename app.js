@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const _ = require('lodash');
 
 const config = require('./server/config/database');
 
@@ -34,7 +33,7 @@ require('./server/config/passport')(passport);
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('<h1>Pantry Pal</h1>');
+  res.send('<h1>Pantry Pal Under Maintenance</h1>');
 });
 
 app.use('/api/users', users);
