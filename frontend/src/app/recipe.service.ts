@@ -23,17 +23,16 @@ export class RecipeService {
     private http: HttpClient
   ) { }
 
-  // getRecipes(): Observable<Recipes[]> {
-  //   return of(RECIPES);
-  // }
-  //
-  // getRecipe(id: number): Observable<Recipe> {
-  //   return of(RECIPES.find(recipe => recipe.id === id));
-  // }
 
-  getIngredients(): Observable<string[]>{
+
+
+  //// getIngredients for local file
+
+  getIngredients(userid): Observable<string[]>{
     return of(INGREDIENTS)
   }
+
+  //// getIngredients and updateIngredients for backend
 
   // getIngredients(userid): Observable<string[]>{
   //   return this.http.get<string[]>(`/api/users/${userid}`);
@@ -43,11 +42,8 @@ export class RecipeService {
   //   return this.http.patch<string[]>(`/api/users/${userid}`, ingredients);
   // }
 
+
   getRecipes(ingredients): Observable<Recipe[]> {
-    // const ingredientsArray = [];
-    // for (let i = 0; i < ingredients.length; i++) {
-    //   ingredientsArray.push(ingredients[i].name);
-    // }
     const ingredientsString = ingredients.join(',');
     const ingredientsURI = encodeURIComponent(ingredientsString);
     return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=false&number=5&ranking=2`, httpOptions);
