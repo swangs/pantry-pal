@@ -13,11 +13,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   openSignupModal() {
-    document.getElementsByClassName("signup-modal")[0].classList.add("md-show")
+    document.getElementsByClassName('signup-modal')[0].classList.add('md-show');
   }
-  
+
   openLoginModal() {
-    document.getElementsByClassName("login-modal")[0].classList.add("md-show")
+    document.getElementsByClassName('login-modal')[0].classList.add('md-show');
   }
 
 }

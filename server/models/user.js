@@ -1,31 +1,38 @@
 const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const config = require('../config/database');
+const config = require('../config/key');
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
-    minlength: 1,
+    required: [true, 'Username cannot be blank'],
+    maxlength: [12, 'Username cannot be greater than 12 characters'],
     trim: true,
-    unique: true,
+    unique: true
   },
   password: {
     type: String,
-    require: true,
-    minlength: 6
+    trim: true,
+    required: [true, 'Password cannot be blank'],
+    minlength: [6, 'Password cannot be less than 6 characters']
+  },
+  ingredients: {
+    type: Array,
   }
 });
+
+UserSchema.plugin(uniqueValidator, { message: 'Username already exists' });
 
 // Instance methods
 UserSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
 
-  return _.pick(userObject, ['_id', 'username']);
+  return _.pick(userObject, ['_id', 'username', 'ingredients']);
 };
 
 UserSchema.methods.generateToken = function () {

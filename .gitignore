@@ -33,7 +33,6 @@
 npm-debug.log
 testem.log
 /typings
-database.js
 
 # e2e
 /e2e/*.js
@@ -44,3 +43,4 @@ database.js
 Thumbs.db
 
 api.ts
+key.js

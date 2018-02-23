@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { mashapeKey } from './api';
 import { Recipe } from './data/recipes';
 // import { RECIPES } from './data/recipes';
-import { INGREDIENTS } from './data/ingredients';
+import { Ingredients, INGREDIENTS } from './data/ingredients';
 // import { INGREDIENTS } from './ingredients/ingredients.component';
 
 import { Observable } from 'rxjs/Observable';
@@ -23,27 +23,38 @@ export class RecipeService {
     private http: HttpClient
   ) { }
 
-  // getRecipes(): Observable<Recipes[]> {
-  //   return of(RECIPES);
-  // }
-  //
-  // getRecipe(id: number): Observable<Recipe> {
-  //   return of(RECIPES.find(recipe => recipe.id === id));
+  //// getIngredients for local file
+
+  // getIngredients(userid): Observable<string[]>{
+  //   return of(INGREDIENTS)
   // }
 
-  getRecipes(): Observable<Recipe[]> {
-    const ingredients = [];
-    for (let i = 0; i < INGREDIENTS.length; i++) {
-      ingredients.push(INGREDIENTS[i].name);
-    }
+  //// getIngredients and updateIngredients for backend
+
+  getIngredients(userid): Observable<string[]> {
+    return this.http.get<string[]>(`http://localhost:3000/api/users/${userid}`);
+  }
+
+  updateIngredients(userid, ingredients): Observable<string[]> {
+
+    return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients });
+  }
+
+  // updateIngredients(options): Observable<string[]> {
+  //   console.log(options);
+  //   // ingredients = JSON.stringify(ingredients);
+  //   const userid = options.userid;
+  //   const ingredients = options.ingredients;
+  //   return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients });
+  // }
+
+  getRecipes(ingredients): Observable<Recipe[]> {
     const ingredientsString = ingredients.join(',');
     const ingredientsURI = encodeURIComponent(ingredientsString);
-    /* tslint:disable-next-line */
     return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=false&number=5&ranking=2`, httpOptions);
   }
 
   getRecipe(id: number): Observable<Recipe> {
-    /* tslint:disable-next-line */
     return this.http.get<Recipe>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=false`, httpOptions);
   }
 

@@ -2,6 +2,7 @@
   margin-top: 50px;
   display: flex;
   overflow-y: scroll;
+  min-height: calc(100vh - 50px);
 }
 
 .recipe-sidebar {
