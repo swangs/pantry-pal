@@ -15,6 +15,7 @@
       <li *ngFor="let steps of instructions.steps">
         <p>{{steps.step}}</p>
       </li>
+      <a href="{{recipe.sourceUrl}}" target="_blank">More Details</a>
     </ul>
 
     <button (click)="goBack()">go back</button>
