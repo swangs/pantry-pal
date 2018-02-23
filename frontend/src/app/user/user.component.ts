@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
   user: Object;
   ingredients: string[];
   recipes: Recipe[];
+  ingredient = '';
 
   constructor(
     private recipeService: RecipeService,
@@ -28,26 +29,31 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getIngredients();
-
-    this.authService.userPage().subscribe(
-      data => {
-        this.user = data['user'];
-      },
-      err => {
-        return false;
-      }
-    );
+    // this.getIngredients();
 
     // this.authService.userPage().subscribe(
     //   data => {
     //     this.user = data['user'];
-    //     this.getIngredients();
     //   },
     //   err => {
     //     return false;
     //   }
     // );
+
+    this.authService.userPage().subscribe(
+      data => {
+        this.user = data['user'];
+        this.getIngredients();
+        // let pojo = {
+        //   ingredients: ['bread', 'milk'],
+        //   userid: this.user._id
+        // }
+        // this.recipeService.updateIngredients(pojo);
+      },
+      err => {
+        return false;
+      }
+    );
   }
 
   // to convert to backend
@@ -57,48 +63,51 @@ export class UserComponent implements OnInit {
   //
 
   getIngredients(): void {
-    this.recipeService.getIngredients(1)
+    this.recipeService.getIngredients(this.user['_id'])
       .flatMap(ingredients => {
-        this.ingredients = ingredients
+        this.ingredients = ingredients;
         return this.recipeService.getRecipes(ingredients);
-      }).subscribe(recipes => {this.recipes = recipes});
+      }).subscribe(recipes => { this.recipes = recipes; });
   }
 
-  ingredient = "";
+
 
   //// methods for local file access
 
-  addIngredient($event): void {
-    if (!this.ingredients.includes(this.ingredient)) {
-      INGREDIENTS.push(this.ingredient);
-    }
-    this.ingredient = ""
-    this.getIngredients();
-  }
-
-  removeIngredient(name): void {
-    let index = this.ingredients.indexOf(name);
-    this.ingredients.splice(index, 1);
-    this.getIngredients();
-  }
-
-  //// methods for backend file access
   // addIngredient($event): void {
   //   if (!this.ingredients.includes(this.ingredient)) {
-  //     this.ingredients.push(this.ingredient)
-  //     this.recipeService.updateIngredients(this.ingredients, this.user.id)
-  //       .flatMap(ingredients => this.getIngredients(this.user.id));
+  //     this.ingredients.push(this.ingredient);
   //   }
   //   this.ingredient = ""
+  //   this.getIngredients();
   // }
-  //
+
   // removeIngredient(name): void {
-  //   let index = this.ingredients.indexOf(name);
+  //   const index = this.ingredients.indexOf(name);
   //   this.ingredients.splice(index, 1);
-  //   this.recipeService.updateIngredients(this.ingredients, this.user.id)
-  //     .flatMap(ingredients => this.getIngredients(this.user.id));
+  //   this.getIngredients();
   // }
 
-
-
+  //// methods for backend file access
+  addIngredient(): void {
+    if (!this.ingredients.includes(this.ingredient)) {
+      this.ingredients.push(this.ingredient);
+      const options = {
+        ingredients: this.ingredients,
+        userid: this.user['_id']
+      };
+      this.recipeService.updateIngredients(this.user['_id'], this.ingredients)
+        .flatMap(result => { this.getIngredients(); return result; })
+        .subscribe();
+    }
+    this.ingredient = '';
+  }
+  //
+  removeIngredient(name): void {
+    const index = this.ingredients.indexOf(name);
+    this.ingredients.splice(index, 1);
+    this.recipeService.updateIngredients(this.user['_id'], this.ingredients)
+      .flatMap(result => { this.getIngredients(); return result; })
+      .subscribe();
+  }
 }

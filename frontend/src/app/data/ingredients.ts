@@ -33,4 +33,5 @@ export const INGREDIENTS = [
   'groud beef',
   'potatos',
   'ketchup'
-]
+];
+

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { mashapeKey } from './api';
+import { mashapeKey } from './api';
 import { Recipe } from './data/recipes';
 // import { RECIPES } from './data/recipes';
 import { Ingredients, INGREDIENTS } from './data/ingredients';
@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 const httpOptions = {
     headers: new HttpHeaders({
       'Accept': 'application/json',
-      // 'X-Mashape-Key': mashapeKey
+      'X-Mashape-Key': mashapeKey
      })
 };
 
@@ -23,25 +23,30 @@ export class RecipeService {
     private http: HttpClient
   ) { }
 
-
-
-
   //// getIngredients for local file
 
-  getIngredients(userid): Observable<string[]>{
-    return of(INGREDIENTS)
-  }
+  // getIngredients(userid): Observable<string[]>{
+  //   return of(INGREDIENTS)
+  // }
 
   //// getIngredients and updateIngredients for backend
 
-  // getIngredients(userid): Observable<string[]>{
-  //   return this.http.get<string[]>(`/api/users/${userid}`);
-  // }
-  //
-  // updateIngredients(ingredients, userid): Observable<string[]>{
-  //   return this.http.patch<string[]>(`/api/users/${userid}`, ingredients);
-  // }
+  getIngredients(userid): Observable<string[]> {
+    return this.http.get<string[]>(`http://localhost:3000/api/users/${userid}`);
+  }
 
+  updateIngredients(userid, ingredients): Observable<string[]> {
+
+    return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients });
+  }
+
+  // updateIngredients(options): Observable<string[]> {
+  //   console.log(options);
+  //   // ingredients = JSON.stringify(ingredients);
+  //   const userid = options.userid;
+  //   const ingredients = options.ingredients;
+  //   return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients });
+  // }
 
   getRecipes(ingredients): Observable<Recipe[]> {
     const ingredientsString = ingredients.join(',');
