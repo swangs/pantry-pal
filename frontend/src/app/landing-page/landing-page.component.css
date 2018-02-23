@@ -153,4 +153,5 @@ button, input[type="submit"], input[type="reset"] {
 .footer div section {
   display: flex;
   align-items: center;
+  width: 70%;
 }
