@@ -141,10 +141,6 @@
   border-radius: 20%;
 }
 
-.footer button {
-  background-color: none;
-}
-
 .footer div {
   display: flex;
 }
