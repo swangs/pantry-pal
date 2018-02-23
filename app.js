@@ -22,7 +22,7 @@ const app = express();
 const users = require('./server/routes/users');
 
 const port = process.env.PORT || 3000;
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Middlewares
 app.use(bodyParser.json());
@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 app.use('/api/users', users);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 // Start Server

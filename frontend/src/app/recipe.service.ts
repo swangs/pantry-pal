@@ -32,21 +32,13 @@ export class RecipeService {
   //// getIngredients and updateIngredients for backend
 
   getIngredients(userid): Observable<string[]> {
-    return this.http.get<string[]>(`http://localhost:3000/api/users/${userid}`);
+    return this.http.get<string[]>(`api/users/${userid}`);
   }
 
   updateIngredients(userid, ingredients): Observable<string[]> {
-
-    return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients });
+    return this.http.patch<string[]>(`api/users/${userid}`, { ingredients });
   }
 
-  // updateIngredients(options): Observable<string[]> {
-  //   console.log(options);
-  //   // ingredients = JSON.stringify(ingredients);
-  //   const userid = options.userid;
-  //   const ingredients = options.ingredients;
-  //   return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients });
-  // }
 
   getRecipes(ingredients): Observable<Recipe[]> {
     const ingredientsString = ingredients.join(',');
