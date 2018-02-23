@@ -2,11 +2,12 @@
   display: flex;
   overflow-y: scroll;
   margin-top: 50px;
+  min-height: calc(100vh - 50px);
 }
 
 .ingredients {
   min-width: 300px;
-  box-shadow: 2px 0px 10px 0px #909090;
+  box-shadow: 2px 0px 10px 0px #90909075;
 }
 .ingredients h1 {
   font-size: 40px;
@@ -17,4 +18,52 @@
 
 .recipes {
   width: calc(100vw - 400px);
+}
+
+.ingredients-title {
+  font-weight: 700;
+  font-size: 25px;
+  margin: 15px 30px;
+  color: #808080;
+}
+
+.ingredients-list {
+  margin: 0px 30px;
+}
+
+.ingredients-item {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em 0px;
+  padding: .3em 0;
+  height: 1.6em;
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredient-name {
+  margin-left: 15px;
+  color: #607D8B;
+  font-size: 20px;
+}
+
+.remove-ingredient {
+  margin-right: 15px;
+  border-radius: 5px;
+  color: #FF543E;
+}
+
+.remove-ingredient:hover {
+  cursor: pointer;
+  border: 1px solid #FF543E;
+}
+
+.ingredients-input {
+  height: 1.8em;
+  width: 240px;
+  padding: 0px 5px;
+  margin: 15px 30px;
 }

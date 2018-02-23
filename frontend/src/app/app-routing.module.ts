@@ -9,7 +9,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthGuard } from './auth.guard';
 import { LoggedInGuard } from './loggedin.guard';
 
-
+// , canActivate: [AuthGuard]
 const routes: Routes = [
   { path: '', component: LandingPageComponent, canActivate: [LoggedInGuard] },
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },

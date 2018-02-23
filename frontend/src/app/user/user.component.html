@@ -1,9 +1,23 @@
 <div class="user-page">
   <div class="ingredients">
     <h1 *ngIf="user">{{user.username}}</h1>
-    <app-ingredients></app-ingredients>
+    <!-- <app-ingredients [ingredients]="ingredients"></app-ingredients> -->
+    <h2 class="ingredients-title">My Ingredients</h2 >
+    <ul class="ingredients-list">
+      <li class="ingredients-item" *ngFor="let ingredient of ingredients">
+        <h3 class="ingredient-name">{{ingredient}}</h3>
+        <button class="remove-ingredient" type="button" (click)="removeIngredient(ingredient)">X</button>
+      </li>
+    </ul>
+    <input class="ingredients-input"
+      type="text"
+      name=""
+      placeholder="Add Ingredient"
+      (keyup.enter)="addIngredient()"
+      [(ngModel)]="ingredient" >
+
   </div>
   <div class="recipes">
-    <app-recipes></app-recipes>
+    <app-recipes [recipes]="recipes"></app-recipes>
   </div>
 </div>
