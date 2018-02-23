@@ -1,9 +1,79 @@
-<div class="landing-page">
-  <p>
-    landing-page works!
-  </p>
-  <app-signup></app-signup>
-  <app-login></app-login>
-  <button class="md-trigger" data-modal="modal-1" (click)="openSignupModal()">Sign Up</button>
-  <button class="md-trigger" data-modal="modal-1" (click)="openLoginModal()">Login</button>
+<div>
+  <div class="landing-page">
+    <div class='content-container'>
+      <div class='title-and-body'>
+        <p id='welcome'>
+          WELCOME TO
+        </p>
+        <p id='title'>
+          Pantry Pal
+        </p>
+        <p id='description'>
+        Unused food and leftovers are a problem everyone faces. Ever find yourself unsure of what you can make with that half full
+        bottle of teriyaki sauce? $165 billion worth of food is wasted each year by Americans. Pantry Pal solves this problem by
+        searching a recipe database and determining which recipes are readily available to make. Users can customize their list of
+        current ingredients and find new or favorite recipes to make. Sign up and start cooking today!
+        </p>
+      </div>
+      <div class='buttons'>
+        <app-signup></app-signup>
+        <app-login></app-login>
+        <button class="md-trigger" data-modal="modal-1" (click)="openSignupModal()">Sign Up</button>
+        <button class="md-trigger" data-modal="modal-1" (click)="openLoginModal()">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <div class='functionality'>
+    <p>
+      Features!
+    </p>
+  </div>
+    
+  <div class='technologies'>
+    <div>
+      <p id='nodejs'>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png" alt="node.js">
+      </p>
+      <p id='angular'>
+        <img src="https://angular.io/assets/images/logos/angular/logo-nav@2x.png" alt="angular">
+      </p>
+    </div>
+    <div>
+      <p id='mongodb'>
+        <img src="https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png" alt="mongodb">
+      </p>
+      <p id='express'>
+        <img src="http://mean.io/wp-content/themes/twentysixteen-child/images/express.png" alt="express">
+      </p>
+    </div>
+    <img src="http://www.teaminindia.com/Content/images/meanstack-componants.jpg" alt="">
+  </div>
+
+  <div class='footer'>
+    <div>
+      <section>
+        <p>
+          Jonathon Abantao
+          <a href='https://github.com/swangs/pantry-pal'><img src="https://image.flaticon.com/icons/svg/23/23957.svg" alt="github"></a>
+          <a href='https://www.linkedin.com/in/jmabantao/'><img src="https://image.freepik.com/free-icon/linkedin-logo-ios-7-interface-symbol_318-33633.jpg" alt="linkedin"></a>
+        </p>
+      </section>
+      <section>
+        <p>
+          Katie Noonan
+          <a href='https://github.com/swangs/pantry-pal'><img src="https://image.flaticon.com/icons/svg/23/23957.svg" alt="github"></a>      
+          <a href='https://www.linkedin.com/in/catherine-noonan-601330133/'><img src="https://image.freepik.com/free-icon/linkedin-logo-ios-7-interface-symbol_318-33633.jpg" alt="linkedin"></a>
+        </p>
+      </section>
+      <section>
+        <p>
+          Steven Wang
+          <a href='https://github.com/swangs/pantry-pal'><img src="https://image.flaticon.com/icons/svg/23/23957.svg" alt="github"></a>      
+          <a href='https://www.linkedin.com/in/s-wang/'><img src="https://image.freepik.com/free-icon/linkedin-logo-ios-7-interface-symbol_318-33633.jpg" alt="linkedin"></a>
+        </p>
+      </section>
+    </div>
+  </div>
+
 </div>

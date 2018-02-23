@@ -1,3 +1,146 @@
 .landing-page {
   margin-top: 50px;
+  padding: 200px 0px;
+  width: 100%;
+  min-width: 1100px;
+  height: 500px;
+  background-color: #659DBD;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(https://images.unsplash.com/photo-1503767849114-976b67568b02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=834896599ce28318d8bc1500ad27112a&auto=format&fit=crop&w=1350&q=80);
+  background-size: cover;
+  /* background-position: fixed; */
+}
+
+.content-container {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-and-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#welcome {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 15px;
+  font-weight: 100;
+  padding-bottom: 2px;
+  border-bottom: 1px solid white;
+}
+
+#title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 100px;
+}
+
+#description {
+  font-family: 'Roboto Slab', serif;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  padding-top: 30px;
+  text-align: center;
+  text-shadow: 0px 0px 1px black;
+}
+
+.buttons {
+  padding: 30px;
+}
+
+.md-trigger {
+  width: 200px;
+  height: 65px;
+  border-radius: 40px;
+  background-color: #659DBD;
+  border: 3px solid white;
+  color: white;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  margin: 0px 20px;
+}
+
+.md-trigger:hover {
+  width: 200px;
+  height: 65px;
+  border-radius: 40px;
+  background-color: white;
+  border: 3px solid white;
+  color: #659DBD;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  margin: 0px 20px;
+  cursor: pointer;
+}
+
+.functionality {
+  width: 100%;
+  min-width: 910px;
+  height: 800px;
+  background-color: #fbeec1;
+}
+
+.technologies {
+  width: 100%;
+  min-width: 910px;
+  height: 800px;
+  background-color: #daad86;
+  display: flex;
+  justify-content: space-around;
+}
+
+.technologies img {
+  object-fit: contain;
+  width: 100%;
+  height: 130px;
+  padding: 80px 50px;
+}
+
+#nodejs {
+  padding-top: 50px;
+}
+
+#mongodb {
+  padding-top: 50px;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: #8d8741;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.footer img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 20%;
+}
+
+.footer div {
+  display: flex;
+}
+
+.footer div p {
+  padding: 20px 70px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 35px;
+}
+
+.footer div section {
+  display: flex;
+  align-items: center;
 }
