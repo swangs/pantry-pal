@@ -144,3 +144,13 @@
 .footer button {
   background-color: none;
 }
+
+.footer div {
+  display: flex;
+}
+
+.footer div p {
+  padding: 20px 70px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 30px;
+}
