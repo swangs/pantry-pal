@@ -155,3 +155,20 @@ input[type=submit], input[type=reset] {
     cursor: pointer;
 	width: 100%;
 }
+
+.close-button {
+	position: absolute;
+    top: 20px;
+	left: 20px;
+	font-size: 25px;
+	font-weight: 100;
+	opacity: 0.3;
+	background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-button:hover {
+	cursor: pointer;
+	opacity: 1.0;
+}
