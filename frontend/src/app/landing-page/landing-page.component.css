@@ -95,35 +95,23 @@
   min-width: 910px;
   height: 800px;
   background-color: #daad86;
+  display: flex;
+  justify-content: space-around;
 }
 
 .technologies img {
   object-fit: contain;
-  width: 40%;
+  width: 100%;
   height: 150px;
+  padding: 80px 50px;
 }
 
 #nodejs {
-  display: block;
-  padding-top: 80px;
-  padding-bottom: 20px;
-}
-
-#angular {
-  display: block;
-  float: right;
-  padding: 20px 0px;
+  padding-top: 50px;
 }
 
 #mongodb {
-  display: block;
-  padding: 20px 0px;
-}
-
-#express {
-  display: block;
-  float: right;
-  padding: 20px 0px;
+  padding-top: 50px;
 }
 
 .footer {
@@ -132,6 +120,7 @@
   background-color: #8d8741;
   color: white;
   display: flex;
+  justify-content: center;
 }
 
 .footer img {
