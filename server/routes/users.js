@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-// const config = require('../config/key');
 const _ = require('lodash');
 const { ObjectID } = require('mongodb');
 
