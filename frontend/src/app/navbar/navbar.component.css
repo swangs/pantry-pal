@@ -18,9 +18,13 @@
   cursor: pointer;
 }
 
+.nav-buttons {
+  margin: auto 25px auto 0px;
+}
+
 .nav-button {
   cursor: pointer;
   height: 25px;
-  margin: auto 25px auto 0px;
+  margin-right: 5px;
   border-radius: 5px;
 }
