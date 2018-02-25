@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { mashapeKey } from './api';
+
 import { Recipe } from './data/recipes';
-// import { RECIPES } from './data/recipes';
-import { Ingredients, INGREDIENTS } from './data/ingredients';
-// import { INGREDIENTS } from './ingredients/ingredients.component';
+import { INGREDIENTS } from './data/ingredients';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -16,8 +15,11 @@ const httpOptions = {
      })
 };
 
+
 @Injectable()
 export class RecipeService {
+
+  authToken: any;
 
   constructor(
     private http: HttpClient
@@ -30,32 +32,36 @@ export class RecipeService {
   // }
 
   //// getIngredients and updateIngredients for backend
+  generateTokenHeader() {
+    const token = localStorage.getItem('token');
+    this.authToken = token;
+
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.authToken
+    });
+  }
 
   getIngredients(userid): Observable<string[]> {
-    return this.http.get<string[]>(`http://localhost:3000/api/users/${userid}`);
+    const headers = this.generateTokenHeader();
+
+    return this.http.get<string[]>(`http://localhost:3000/api/users/${userid}`, { headers });
   }
 
   updateIngredients(userid, ingredients): Observable<string[]> {
+    const headers = this.generateTokenHeader();
 
-    return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients });
+    return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients }, { headers });
   }
 
-  // updateIngredients(options): Observable<string[]> {
-  //   console.log(options);
-  //   // ingredients = JSON.stringify(ingredients);
-  //   const userid = options.userid;
-  //   const ingredients = options.ingredients;
-  //   return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients });
-  // }
 
   getRecipes(ingredients): Observable<Recipe[]> {
     const ingredientsString = ingredients.join(',');
     const ingredientsURI = encodeURIComponent(ingredientsString);
-    return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=false&number=5&ranking=2`, httpOptions);
+    return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=true&number=5&ranking=2`, httpOptions);
   }
 
   getRecipe(id: number): Observable<Recipe> {
-    return this.http.get<Recipe>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=false`, httpOptions);
+    return this.http.get<Recipe>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=true`, httpOptions);
   }
-
 }
