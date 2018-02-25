@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { mashapeKey } from './api';
+// import { mashapeKey } from './api';
 
 import { Recipe } from './data/recipes';
 import { INGREDIENTS } from './data/ingredients';
@@ -11,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 const httpOptions = {
     headers: new HttpHeaders({
       'Accept': 'application/json',
-      'X-Mashape-Key': mashapeKey
+      'X-Mashape-Key': process.env.SPOON
      })
 };
 
