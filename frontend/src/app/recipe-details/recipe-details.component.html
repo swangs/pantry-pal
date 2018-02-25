@@ -15,8 +15,24 @@
       <li *ngFor="let steps of instructions.steps">
         <p>{{steps.step}}</p>
       </li>
+      <p>For more details, visit <a href="{{recipe.sourceUrl}}" target="_blank">{{recipe.sourceName}}</a></p>
     </ul>
-
     <button (click)="goBack()">go back</button>
+  </div>
+  <div class="additional-info">
+    <ul class="nutrition-list">
+      <h1>Nutrition Information</h1>
+      <p>Vegetarian: {{recipe.vegetarian}}</p>
+      <p>Vegan: {{recipe.vegan}}</p>
+      <p>Gluten Free: {{recipe.glutenFree}}</p>
+      <p>Dairy Free: {{recipe.dairyFree}}</p>
+      <p>Healty Choice: {{recipe.veryHealthy}}</p>
+      <p>Weight Watcher Smart Points: {{recipe.weightWatcherSmartPoints}}</p>
+      <hr>
+      <li *ngFor="let nutrient of recipe.nutrition.nutrients">
+        <p>{{nutrient.title}}: {{nutrient.amount}}{{nutrient.unit}}</p>
+        <!-- <p>({{nutrient.percentOfDailyNeeds}}% Daily Value)</p> -->
+      </li>
+    </ul>
   </div>
 </div>

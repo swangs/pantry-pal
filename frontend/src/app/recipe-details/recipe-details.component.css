@@ -1,3 +1,14 @@
+p {
+  font-weight: 400;
+  font-size: 18px;
+  color: #607D8B;
+  margin: 15px 0px;
+}
+
+button {
+  cursor: pointer;
+}
+
 .recipe-detail {
   margin-top: 50px;
   display: flex;
@@ -7,7 +18,7 @@
 
 .recipe-sidebar {
   width: 500px;
-  box-shadow: 2px 0px 10px 0px #909090;
+  box-shadow: 2px 0px 10px 0px #90909075;
 }
 
 .recipe-title {
@@ -47,13 +58,23 @@
   color: #808080;
 }
 
-p {
-  font-weight: 400;
-  font-size: 18px;
-  color: #607D8B;
-  margin: 15px 0px;
+.additional-info {
+  min-width: 200px;
+  padding: 0px 15px;
+  box-shadow: -2px 0px 10px 0px #90909075;
 }
 
-button {
-  cursor: pointer;
+.nutrition-list {
+  margin: auto;
+}
+
+.nutrition-list h1 {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 15px 0px;
+  color: #808080;
+}
+
+.nutrition-list p {
+  font-size: 12px;
 }
