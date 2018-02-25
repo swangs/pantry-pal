@@ -39,7 +39,11 @@ UserSchema.methods.generateToken = function () {
   const user = this;
 
   // 1 week expiration
-  const token = jwt.sign({ _id: user._id }, config.secret, { expiresIn: 604800 });
+  const token = jwt.sign(
+    { _id: user._id }, 
+    config.secret, 
+    { expiresIn: 604800 }
+  );
   return `JWT ${token}`;
 };
 
@@ -91,7 +95,6 @@ UserSchema.pre('save', function (next) {
     next();
   }
 });
-
 
 const User = mongoose.model('User', UserSchema);
 
