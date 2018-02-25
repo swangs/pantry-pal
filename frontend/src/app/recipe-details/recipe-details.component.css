@@ -1,7 +1,7 @@
 p {
   font-weight: 400;
   font-size: 18px;
-  color: #607D8B;
+  color: #659DBD;
   margin: 15px 0px;
 }
 
@@ -17,22 +17,23 @@ button {
 }
 
 .recipe-sidebar {
-  width: 500px;
+  width: 400px;
   box-shadow: 2px 0px 10px 0px #90909075;
+  background: #FBEEC125;
 }
 
 .recipe-title {
   font-weight: 700;
   font-size: 45px;
   margin: 15px 30px;
-  color: #808080;
+  color: #607D8B;
 }
 
 .recipe-img {
   margin: 15px 30px;
-  width: 450px;
+  width: 350px;
   border-radius: 15px;
-  box-shadow: 2px 2px 5px 1px #808080;
+  box-shadow: 2px 2px 5px 1px #607D8B;
 }
 
 .ingredient-item {
@@ -48,14 +49,15 @@ button {
 }
 
 .recipe-main {
-  margin: 0px 30px;
+  padding: 0px 30px;
+  background: #8D874125;
 }
 
 .directions-title {
   font-weight: 700;
   font-size: 35px;
   margin: 15px 0px;
-  color: #808080;
+  color: #607D8B;
 }
 
 .additional-info {
@@ -72,7 +74,7 @@ button {
   font-weight: 700;
   font-size: 20px;
   margin: 15px 0px;
-  color: #808080;
+  color: #607D8B;
 }
 
 .nutrition-list p {
