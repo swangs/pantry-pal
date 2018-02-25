@@ -6,7 +6,7 @@ const User = require('../models/user');
 const jwtAuth = passport => {
   let opts = {};
   opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('jwt');
-  opts.secretOrKey = process.env.JWT_TOKEN;
+  opts.secretOrKey = process.env.JWT_TOKEN || 'supersecret';
   passport.use(new JwtStrategy(opts, (jwtPayload, done) => {
     User.getById(jwtPayload._id).then(user => {
       return done(null, user);

@@ -92,7 +92,7 @@ router.patch('/:id', authenticate, (req, res) => {
 
     // Guard to protect not-currentuser from manipulating data
     const auth = req.headers.authorization.slice(4);
-    const verify = jwt.verify(auth, process.env.JWT_TOKEN);
+    const verify = jwt.verify(auth, process.env.JWT_TOKEN || 'supersecret');
 
     if (id !== verify._id) {
       return res.status(401).json({
