@@ -1,17 +1,19 @@
 <div class="login-modal md-effect-1" id="modal-2">
-	<div class="md-content">
-    <h2>Log In!</h2>
+  <div class="md-content">
+    <button class='close-button' (click)="closeModal()">X</button>
 
-    <form (submit)="handleLogin()">
-      <div>
-        <label>Username</label>
-        <input type="text" [(ngModel)]="username" name="username" />
+    <p>Log In!</p>
+
+    <form class='login-form' (submit)="handleLogin()">
+      <div class='login-username-total'>
+        <label id='login-username'>Username:</label>
+        <input id='login-username-input' type="text" [(ngModel)]="username" name="username" />
       </div>
-      <div>
-        <label>Password</label>
-        <input type="password" [(ngModel)]="password" name="password" />
+      <div class='login-password-total'>
+        <label id='login-password'>Password:</label>
+        <input id='login-username-input' type="password" [(ngModel)]="password" name="password" />
       </div>
-      <input type="submit" value="Log In" />
+      <input id='login-button' type="submit" value="Log In" />
     </form>
 	</div>
 </div>

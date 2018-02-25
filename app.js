@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const _ = require('lodash');
 
 const config = require('./server/config/database');
 
@@ -22,7 +21,7 @@ const app = express();
 const users = require('./server/routes/users');
 
 const port = process.env.PORT || 3000;
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Middlewares
 app.use(bodyParser.json());
@@ -34,13 +33,13 @@ require('./server/config/passport')(passport);
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('<h1>Pantry Pal</h1>');
+  res.send('<h1>Pantry Pal Under Maintenance</h1>');
 });
 
 app.use('/api/users', users);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 // Start Server

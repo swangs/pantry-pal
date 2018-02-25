@@ -55,7 +55,7 @@ router.get('/user', authenticate, (req, res) => {
   });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', authenticate, (req, res) => {
   const id = req.params.id;
   if (!ObjectID.isValid(id)) {
     return res.status(404).send({
@@ -68,14 +68,13 @@ router.get('/:id', (req, res) => {
       return res.status(404).send();
     }
 
-
     res.send(currentUser.ingredients);
   }).catch(e => {
     res.status(400).send(e);
   });
 });
 
-router.patch('/:id', (req, res) => {
+router.patch('/:id', authenticate, (req, res) => {
   const id = req.params.id;
 
   if (!ObjectID.isValid(id)) {
@@ -91,15 +90,15 @@ router.patch('/:id', (req, res) => {
       });
     }
 
-    // // Guard to protect not-currentuser from manipulating data
-    // const auth = req.headers.authorization.slice(4);
-    // const verify = jwt.verify(auth, config.secret);
+    // Guard to protect not-currentuser from manipulating data
+    const auth = req.headers.authorization.slice(4);
+    const verify = jwt.verify(auth, config.secret);
 
-    // if (id !== verify._id) {
-    //   return res.status(401).json({
-    //     message: 'Unauthorized'
-    //   });
-    // }
+    if (id !== verify._id) {
+      return res.status(401).json({
+        message: 'Unauthorized'
+      });
+    }
 
     currentUser.ingredients = req.body.ingredients;
 
@@ -110,6 +109,5 @@ router.patch('/:id', (req, res) => {
     res.status(400).send(e);
   });
 });
-
 
 module.exports = router;
