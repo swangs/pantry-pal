@@ -8,23 +8,25 @@
 .ingredients {
   min-width: 300px;
   box-shadow: 2px 0px 10px 0px #90909075;
+  background: #FBEEC125;
 }
 .ingredients h1 {
   font-size: 40px;
   font-weight: 700;
   margin: 15px 30px;
-  color: #607D8B;
+  color: #659DBD;
 }
 
 .recipes {
-  width: calc(100vw - 400px);
+  width: calc(100vw - 300px);
+  background: #8D874125;
 }
 
 .ingredients-title {
   font-weight: 700;
   font-size: 25px;
   margin: 15px 30px;
-  color: #808080;
+  color: #607D8B;
 }
 
 .ingredients-list {
@@ -46,7 +48,7 @@
 
 .ingredient-name {
   margin-left: 15px;
-  color: #607D8B;
+  color: #659DBD;
   font-size: 20px;
 }
 

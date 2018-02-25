@@ -2,7 +2,7 @@ h2 {
   font-weight: 700;
   font-size: 35px;
   margin: 15px 30px;
-  color: #808080;
+  color: #607D8B;
 }
 
 .recipes-list {
@@ -15,13 +15,13 @@ h2 {
 }
 
 h3 {
-  color: #607D8B;
+  color: #659DBD;
   font-size: 25px;
   margin: 5px 0px;
 }
 
 p {
-  color: #607D8B;
+  color: #659DBD;
   font-size: 18px;
   margin: 5px 0px;
 }
@@ -31,6 +31,9 @@ li {
   height: 350px;
   cursor: pointer;
   margin: 10px;
+  padding-top: 15px;
+  background: #DAAD8625;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,5 +43,5 @@ img {
   width: 300px;
   max-height: 300px;
   border-radius: 15px;
-  box-shadow: 2px 2px 5px 1px #808080;
+  box-shadow: 2px 2px 5px 1px #607D8B;
 }

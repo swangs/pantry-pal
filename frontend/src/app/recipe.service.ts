@@ -32,6 +32,7 @@ export class RecipeService {
   // }
 
   //// getIngredients and updateIngredients for backend
+
   generateTokenHeader() {
     const token = localStorage.getItem('token');
     this.authToken = token;
