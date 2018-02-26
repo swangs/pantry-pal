@@ -11,19 +11,21 @@ const request = axios.create({
   }
 });
 
-// findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=true&number=5&ranking=2`, httpOptions);
 // Get recipes
 router.get('/findByIngredients', (req, res) => {
-  console.log(req.query.ingredients);
   request.get(`findByIngredients?fillIngredients=false&ingredients=${req.query.ingredients}&limitLicense=true&number=5&ranking=2`)
     .then(recipes => res.send(recipes.data))
-    .catch(e => res.status(400).send(e));
+    .catch(e => res.status(400).json({
+      message: 'Request to Spoonacular failed/unauthorized'
+    }));
 });
 
 router.get('/:id', (req, res) => {
   request.get(`${req.params.id}/information?includeNutrition=true`)
     .then(recipe => res.send(recipe.data))
-    .catch(e => res.status(400).send(e));
+    .catch(e => res.status(400).json({
+      message: 'Request to Spoonacular failed/unauthorized'
+    }));
 });
 
 
