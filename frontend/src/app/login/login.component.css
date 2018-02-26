@@ -93,6 +93,14 @@
 	border-bottom: 1px solid #d3d3d3;
 }
 
+#login-error {
+	min-height: 40px;
+	font-weight: 400;
+	font-size: 18px;
+	color: red;
+	padding: 0px 15px;
+}
+
 .login-form {
 	padding: 20px;
 	width: 100%;
@@ -166,6 +174,19 @@ input[type=submit], input[type=reset] {
 	background: none;
     border: none;
     cursor: pointer;
+}
+
+.demo-login {
+	position: absolute;
+  top: 20px;
+	right: 20px;
+	font-size: 25px;
+	font-weight: 100;
+	opacity: 0.3;
+	background: none;
+	border: 1px solid #505050;
+	border-radius: 10px;
+  cursor: pointer;
 }
 
 .close-button:hover {
