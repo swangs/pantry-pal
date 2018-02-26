@@ -9,7 +9,11 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-image: url(https://images.unsplash.com/photo-1503767849114-976b67568b02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=834896599ce28318d8bc1500ad27112a&auto=format&fit=crop&w=1350&q=80);
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(https://images.unsplash.com/photo-1503767849114-976b67568b02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=834896599ce28318d8bc1500ad27112a&auto=format&fit=crop&w=1350&q=80);
   background-size: cover;
 }
 
