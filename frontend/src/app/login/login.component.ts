@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit {
 
   closeModal() {
     document.getElementsByClassName('login-modal')[0].classList.remove('md-show');
+    this.error = "";
   }
 
   handleError({ error }) {
     if (error && error.errors) {
       Object.values(error.errors).forEach(errMsg => {
         this.error = errMsg['message']
-        console.log(errMsg['message']);
       });
     }
   }

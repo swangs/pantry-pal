@@ -94,12 +94,11 @@
 }
 
 #signup-error {
-	min-height: 20px;
+	min-height: 40px;
 	font-weight: 400;
 	font-size: 18px;
 	color: red;
-	padding: 15px;
-	padding-top: 0px;
+	padding: 0px 15px;
 }
 
 .signup-form {
