@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 
   demoLogin() {
     const user = {
-      username: "guest",
+      username: "Josh King",
       password: "password"
     };
 
