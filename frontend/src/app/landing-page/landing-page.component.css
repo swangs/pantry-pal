@@ -195,16 +195,16 @@
     z-index: 9;
     cursor: pointer;
     transition: opacity .2s;
-    color: #FFF;
-    font-size: 120px;
+    color: white;
+    font-size: 150px;
     text-align: center;
     line-height: 700px;
     font-family: "Varela Round", sans-serif;
-    background-color: rgba(255, 255, 255, .3);
-    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+    /* background-color: rgba(204, 203, 203, 0.2); */
+    text-shadow: 0px 0px 15px rgb(209, 203, 203);
 }
 
-.slide:hover + .nav label { opacity: 0.1; }
+.slide:hover + .nav label { opacity: 0.3; }
 
 .nav label:hover { opacity: 1; }
 
