@@ -2,7 +2,7 @@
   margin-top: 50px;
   padding: 100px 0px;
   width: 100%;
-  min-width: 1000px;
+  min-width: 1100px;
   height: 500px;
   background-color: #659DBD;
   color: white;
@@ -84,30 +84,42 @@
 
 .functionality {
   width: 100%;
-  min-width: 910px;
+  min-width: 1100px;
   height: 600px;
   background-color: #fbeec1;
 }
 
 .technologies {
   width: 100%;
-  min-width: 910px;
-  height: 600px;
+  min-width: 1100px;
+  height: 660px;
   background-color: #daad86;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+}
+
+.technologies p {
+  text-align: center;
+  font-size: 25px;
+  color: #8d8741;
+}
+
+.p-1 {
+  margin: 150px auto 50px auto;
+}
+
+.p-2 {
+  margin: 50px auto 0px auto;
 }
 
 .technologies img {
   object-fit: contain;
   width: 100%;
-  height: 70%;
-  /* padding: 80px 50px; */
-  /* padding-left: 0px; */
 }
 
 .footer {
   width: 100%;
+  min-width: 1100px;
   height: 100px;
   background-color: #8d8741;
   color: white;
@@ -127,7 +139,7 @@
 }
 
 .footer div p {
-  padding: 20px 70px;
+  margin: 10px 50px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 35px;
 }
@@ -169,25 +181,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
     position: absolute;
     transform: scale(0);
     transition: all 1.0s forwards;
 }
 
 .slide img {
-    width: 80%;
-    height: 80%;
-    margin: 50px;
+    width: 58%;
+    height: 70%;
+    margin: 100px;
+    margin-left: 0px;
 }
 
 .slide p {
-    /* font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 35px;
-    text-decoration: underline; */
-    width: 50%;
-    height: 80%;
+    width: 52%;
+    height: 70%;
     margin: 100px;
+    margin-right: 0px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 30px;
 }
 
 .nav label {
