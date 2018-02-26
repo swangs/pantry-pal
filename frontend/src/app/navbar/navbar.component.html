@@ -1,7 +1,9 @@
 <nav class="nav">
   <h1 routerLink="/" class="nav-title">{{title}}</h1>
-  <button *ngIf="authService.loggedIn()" routerLink="/user" class="nav-button" type="button" name="button">My Recipies</button>
-  <button *ngIf="!authService.loggedIn()" routerLink="/login" class="nav-button" type="button" name="button">Login</button>
-  <button *ngIf="!authService.loggedIn()" routerLink="/signup" class="nav-button" type="button" name="button">Sign Up</button>
-  <button *ngIf="authService.loggedIn()" routerLink="/" class="nav-button" type="button" name="button" (click)="handleLogout()">Logout</button>
+  <div class="nav-buttons">
+    <!-- <button *ngIf="authService.loggedIn()" routerLink="/user" class="nav-button" type="button" name="button">My Recipies</button> -->
+    <button *ngIf="!authService.loggedIn()" class="nav-button" (click)="openSignupModal()" type="button" name="button">Sign Up</button>
+    <button *ngIf="!authService.loggedIn()" class="nav-button" (click)="openLoginModal()" type="button" name="button">Login</button>
+    <button *ngIf="authService.loggedIn()" routerLink="/" class="nav-button" type="button" name="button" (click)="handleLogout()">Logout</button>
+  </div>
 </nav>

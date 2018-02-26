@@ -23,4 +23,12 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
   }
 
+  openSignupModal() {
+    document.getElementsByClassName('signup-modal')[0].classList.add('md-show');
+  }
+
+  openLoginModal() {
+    document.getElementsByClassName('login-modal')[0].classList.add('md-show');
+  }
+
 }
