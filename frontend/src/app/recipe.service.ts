@@ -8,13 +8,6 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const httpOptions = {
-    headers: new HttpHeaders({
-      'Accept': 'application/json',
-      'X-Mashape-Key': mashapeKey
-     })
-};
-
 
 @Injectable()
 export class RecipeService {
@@ -58,10 +51,10 @@ export class RecipeService {
   getRecipes(ingredients): Observable<Recipe[]> {
     const ingredientsString = ingredients.join(',');
     const ingredientsURI = encodeURIComponent(ingredientsString);
-    return this.http.get<Recipe[]>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${ingredientsURI}&limitLicense=true&number=5&ranking=2`, httpOptions);
+    return this.http.get<Recipe[]>(`http://localhost:3000/api/recipes/findByIngredients?ingredients=${ingredientsURI}`);
   }
 
   getRecipe(id: number): Observable<Recipe> {
-    return this.http.get<Recipe>(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information?includeNutrition=true`, httpOptions);
+    return this.http.get<Recipe>(`http://localhost:3000/api/recipes/${id}`);
   }
 }
