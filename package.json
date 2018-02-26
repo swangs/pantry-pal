@@ -21,7 +21,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "postinstall": "cd frontend && ng serve --aot -prod",
     "nodemon": "nodemon app.js"
   },
   "engines": {
