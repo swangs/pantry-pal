@@ -39,7 +39,7 @@ UserSchema.methods.generateToken = function () {
   // 1 week expiration
   const token = jwt.sign(
     { _id: user._id }, 
-    process.env.JWT_TOKEN || 'supersecret', 
+    process.env.JWT_TOKEN || 'supersecretkey', 
     { expiresIn: 604800 }
   );
   return `JWT ${token}`;
