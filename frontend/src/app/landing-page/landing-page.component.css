@@ -193,13 +193,13 @@
 .slide img {
     width: 60%;
     height: 70%;
-    padding: 20px 50px;
+    margin: 20px 50px;
 }
 
 .slide p {
     width: 50%;
     height: 70%;
-    padding: 50px 100px;
+    margin: 50px 100px;
 }
 
 .nav label {
