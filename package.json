@@ -24,6 +24,10 @@
     "postinstall": "cd frontend && ng serve --aot -prod",
     "nodemon": "nodemon app.js"
   },
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/swangs/pantry-pal.git"
