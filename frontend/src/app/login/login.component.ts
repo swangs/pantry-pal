@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   username: String;
   password: String;
   data: String;
+  error = "";
 
   constructor(
     private authService: AuthService,
@@ -23,12 +24,13 @@ export class LoginComponent implements OnInit {
 
   closeModal() {
     document.getElementsByClassName('login-modal')[0].classList.remove('md-show');
+    this.error = "";
   }
 
   handleError({ error }) {
     if (error && error.errors) {
       Object.values(error.errors).forEach(errMsg => {
-        console.log(errMsg['message']);
+        this.error = errMsg['message']
       });
     }
   }
@@ -50,4 +52,20 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  demoLogin() {
+    const user = {
+      username: "guest",
+      password: "password"
+    };
+
+    this.authService.loginUser(user).subscribe(
+      data => {
+        this.authService.storeUserData(data['token'], data['user']);
+        this.router.navigate(['/user']);
+      },
+      err => {
+        this.handleError(err);
+      }
+    );
+  }
 }
