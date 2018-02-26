@@ -4,8 +4,6 @@ const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const config = require('../config/key');
-
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -41,7 +39,7 @@ UserSchema.methods.generateToken = function () {
   // 1 week expiration
   const token = jwt.sign(
     { _id: user._id }, 
-    config.secret, 
+    process.env.JWT_TOKEN || 'supersecretkey', 
     { expiresIn: 604800 }
   );
   return `JWT ${token}`;

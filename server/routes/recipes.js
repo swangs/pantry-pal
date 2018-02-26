@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 const { ObjectID } = require('mongodb');
 
@@ -42,7 +41,7 @@ router.post('/login', (req, res) => {
     res.status(401).json({
       errors: {
         validation: {
-          message: 'Invalid username or password'          
+          message: 'Invalid username or password'
         }
       }
     });
@@ -64,7 +63,7 @@ router.get('/:id', authenticate, (req, res) => {
   }
 
   User.findById(id).then(currentUser => {
-    if(!currentUser) {
+    if (!currentUser) {
       return res.status(404).send();
     }
 

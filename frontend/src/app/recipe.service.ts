@@ -45,13 +45,13 @@ export class RecipeService {
   getIngredients(userid): Observable<string[]> {
     const headers = this.generateTokenHeader();
 
-    return this.http.get<string[]>(`/api/users/${userid}`, { headers });
+    return this.http.get<string[]>(`http://localhost:3000/api/users/${userid}`, { headers });
   }
 
   updateIngredients(userid, ingredients): Observable<string[]> {
     const headers = this.generateTokenHeader();
 
-    return this.http.patch<string[]>(`/api/users/${userid}`, { ingredients }, { headers });
+    return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients }, { headers });
   }
 
 
