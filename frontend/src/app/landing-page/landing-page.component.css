@@ -166,14 +166,19 @@
     opacity: 0;
     width: 100%;
     height: 100%;
-    display: block;
+    display: flex;
     position: absolute;
     transform: scale(0);
     transition: all 1.0s linear;
 }
 
 .slide img {
-    width: 100%;
+    width: 50%;
+    height: 100%;
+}
+
+.slide p {
+    width: 50%;
     height: 100%;
 }
 
@@ -187,9 +192,9 @@
     cursor: pointer;
     transition: opacity .2s;
     color: #FFF;
-    font-size: 156pt;
+    font-size: 120px;
     text-align: center;
-    /* line-height: 100%; */
+    line-height: 800px;
     font-family: "Varela Round", sans-serif;
     background-color: rgba(255, 255, 255, .3);
     text-shadow: 0px 0px 15px rgb(119, 119, 119);
