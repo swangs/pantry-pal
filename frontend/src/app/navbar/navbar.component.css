@@ -7,20 +7,24 @@
   z-index: 10;
   position: fixed;
   top: 0;
-  background-color: #FFFFFF;
+  background-color: #FBEEC1;
 }
 
 .nav-title {
   font-size: 25px;
   font-weight: 700;
-  color: #607D8B;
+  color: #659DBD;
   margin: auto 0px auto 25px;
   cursor: pointer;
+}
+
+.nav-buttons {
+  margin: auto 25px auto 0px;
 }
 
 .nav-button {
   cursor: pointer;
   height: 25px;
-  margin: auto 25px auto 0px;
+  margin-right: 5px;
   border-radius: 5px;
 }
