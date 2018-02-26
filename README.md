@@ -1,41 +1,61 @@
 # Pantry Pal
 
-## Background and Overview
-Unused food and leftovers are a problem everyone faces. Ever find yourself unsure of what you can make with that half full bottle of teriyaki sauce? $165 billion worth of food is wasted each year by Americans. Pantry Pal solves this problem by searching a recipe database and determining which recipes are readily available to make. Users can customize their list of current ingredients and find new or favorite recipes to make.
+[Pantry Pal](https://pantrypal-aa.herokuapp.com) is a web application designed for users to search through a collection of recipes collected through the web, matching based on their ingredients.
 
-## Functionality and MVP
-* Users will be able to create accounts and sign in
-* User profiles will include ingredient lists for users to add or remove items
-* Index of recipes sorted by availability of ingredients
-* Show pages for recipes listing ingredients, substitute ingredient, and directions
+# Technologies used:
+* Frontend: Angular
+* Backend: Node/Express
+* Database: MongoDB
+* External API: [Spoonacular](https://spoonacular.com/food-api)
 
-### Bonus
-* Add your own recipes
-* Favorite recipes
-* Machine Learning to suggest recipes based on your ingredients history
+# Features
 
-## Technologies and Technical Challenges
-### MEAN Stack
-Backend: Node.js, Express.js, MongoDB
-Frontend: Angular
-Spoonacular API for recipe data
+## Ingredient Search
+Users are able to add ingredients in their house. The results are updated everytime the user adds or deletes an ingredient from their list. Recipes are sorted based on the least ingredients they are missing. 
 
-## Things to be Accomplished Over the Weekend
-* Going through MEAN Stack tutorials and docs
-* Start MongoDB and Node Backend test basic API calls (on a free API)
-* Set up node backend and user authentication
+![alt text](https://i.imgur.com/dkVsGBd.gif "search ingredients")
 
-## Group Work Breakdown
+## Backend API
+One concern during the creation of our web application was the security of the API key. The JSON Web Token key was already stored securely in the backend as a environment variable.
 
-### Over The Weekend
-Jonathan: Work on Node
+Originally, the Angular frontend handled the external API requests, but risked malicious users grabbing the API key for their own purposes. The application was then refactored to use a backend route which has access to `process.env` variables to keep the API key safe. Because GET requests do not normally carry bodies, recipe IDs and ingredients were sent through wild card params and queries.
 
-Katie: Work on MongoDB
+For example: 
+```typescript
+// recipe.service.ts
+  getRecipe(id: number): Observable<Recipe> {
+    return this.http.get<Recipe>(`api/recipes/${id}`);
+  }
+```
 
-Steven: Work on Angular
+The backend receives this and sends out a request to the external API, keeping the API key secret through config variables:
 
-### Day 1
-Combine Angular Frontend and Node Backend - Steven, Katie, and Jonathon
+```javascript
+// routes/recipes.js
+const request = axios.create({
+  baseURL: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/',
+  headers: {
+    'Accept': 'application/json',
+    'X-Mashape-Key': process.env.SPOON || 'insertapikeyhere'
+  }
+});
 
-### Day 2/3/4/5/6
-TBD
+router.get('/:id', (req, res) => {
+  request.get(`${req.params.id}/information?includeNutrition=true`)
+    .then(recipe => res.send(recipe.data))
+    .catch(e => res.status(400).json({
+      message: 'Request to Spoonacular failed/unauthorized'
+    }));
+});
+```
+
+# Future Plans
+* Users can favorite recipes for future use
+* More accurate filtering of recipes
+* Excluding recipes
+* Recipe "wishlist" - Ingredients needed for recipes on wishlist can be saved so they can be remembered when grocery shopping
+
+# Team Members
+#### [Steven Wang](https://github.com/swangs/)
+#### [Katie Noonan](https://github.com/c-noonan)
+#### [Jonathan Abantao](https://github.com/jonabantao)
