@@ -13,7 +13,7 @@ const request = axios.create({
 
 // Get recipes
 router.get('/findByIngredients', (req, res) => {
-  request.get(`findByIngredients?fillIngredients=false&ingredients=${req.query.ingredients}&limitLicense=true&number=5&ranking=2`)
+  request.get(`findByIngredients?fillIngredients=false&ingredients=${req.query.ingredients}&limitLicense=true&number=25&ranking=2`)
     .then(recipes => res.send(recipes.data))
     .catch(e => res.status(400).json({
       message: 'Request to Spoonacular failed/unauthorized'
