@@ -93,6 +93,15 @@
 	border-bottom: 1px solid #d3d3d3;
 }
 
+#login-error {
+	min-height: 20px;
+	font-weight: 400;
+	font-size: 18px;
+	color: red;
+	padding: 15px;
+	padding-top: 0px;
+}
+
 .login-form {
 	padding: 20px;
 	width: 100%;

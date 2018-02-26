@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   username: String;
   password: String;
   data: String;
+  error = "";
 
   constructor(
     private authService: AuthService,
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
   handleError({ error }) {
     if (error && error.errors) {
       Object.values(error.errors).forEach(errMsg => {
+        this.error = errMsg['message']
         console.log(errMsg['message']);
       });
     }

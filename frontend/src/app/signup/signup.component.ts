@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 export class SignupComponent implements OnInit {
   username: String;
   password: String;
-
+  error = "";
   constructor(
     private router: Router,
     private authService: AuthService
@@ -27,6 +27,7 @@ export class SignupComponent implements OnInit {
   handleError({ error }) {
     if (error && error.errors) {
       Object.values(error.errors).forEach(errMsg => {
+        this.error = errMsg['message']
         console.log(errMsg['message']);
       });
     }
