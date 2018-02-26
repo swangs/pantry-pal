@@ -38,23 +38,23 @@ export class RecipeService {
   getIngredients(userid): Observable<string[]> {
     const headers = this.generateTokenHeader();
 
-    return this.http.get<string[]>(`http://localhost:3000/api/users/${userid}`, { headers });
+    return this.http.get<string[]>(`api/users/${userid}`, { headers });
   }
 
   updateIngredients(userid, ingredients): Observable<string[]> {
     const headers = this.generateTokenHeader();
 
-    return this.http.patch<string[]>(`http://localhost:3000/api/users/${userid}`, { ingredients }, { headers });
+    return this.http.patch<string[]>(`api/users/${userid}`, { ingredients }, { headers });
   }
 
 
   getRecipes(ingredients): Observable<Recipe[]> {
     const ingredientsString = ingredients.join(',');
     const ingredientsURI = encodeURIComponent(ingredientsString);
-    return this.http.get<Recipe[]>(`http://localhost:3000/api/recipes/findByIngredients?ingredients=${ingredientsURI}`);
+    return this.http.get<Recipe[]>(`api/recipes/findByIngredients?ingredients=${ingredientsURI}`);
   }
 
   getRecipe(id: number): Observable<Recipe> {
-    return this.http.get<Recipe>(`http://localhost:3000/api/recipes/${id}`);
+    return this.http.get<Recipe>(`api/recipes/${id}`);
   }
 }

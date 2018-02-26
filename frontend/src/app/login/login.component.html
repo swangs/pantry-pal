@@ -1,6 +1,7 @@
 <div class="login-modal md-effect-1" id="modal-2">
   <div class="md-content">
     <button class='close-button' (click)="closeModal()">X</button>
+    <button class='demo-login' (click)="demoLogin()">Demo</button>
 
     <p>Log In!</p>
 
@@ -15,6 +16,7 @@
       </div>
       <input id='login-button' type="submit" value="Log In" />
     </form>
+    		<p id="login-error">{{error}}</p>
 	</div>
 </div>
 
