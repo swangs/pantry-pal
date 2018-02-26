@@ -176,6 +176,19 @@ input[type=submit], input[type=reset] {
     cursor: pointer;
 }
 
+.demo-login {
+	position: absolute;
+  top: 20px;
+	right: 20px;
+	font-size: 25px;
+	font-weight: 100;
+	opacity: 0.3;
+	background: none;
+	border: 1px solid #505050;
+	border-radius: 10px;
+  cursor: pointer;
+}
+
 .close-button:hover {
 	cursor: pointer;
 	opacity: 1.0;

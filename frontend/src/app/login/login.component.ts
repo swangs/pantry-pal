@@ -52,4 +52,20 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  demoLogin() {
+    const user = {
+      username: "guest",
+      password: "password"
+    };
+
+    this.authService.loginUser(user).subscribe(
+      data => {
+        this.authService.storeUserData(data['token'], data['user']);
+        this.router.navigate(['/user']);
+      },
+      err => {
+        this.handleError(err);
+      }
+    );
+  }
 }
