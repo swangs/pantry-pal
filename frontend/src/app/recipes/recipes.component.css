@@ -12,17 +12,19 @@ h2 {
 
 .text {
   width: 80%;
+  max-height: 120px;
+  overflow: auto;
 }
 
 h3 {
   color: #659DBD;
-  font-size: 25px;
+  font-size: 20px;
   margin: 5px 0px;
 }
 
 p {
   color: #659DBD;
-  font-size: 18px;
+  font-size: 14px;
   margin: 5px 0px;
 }
 
