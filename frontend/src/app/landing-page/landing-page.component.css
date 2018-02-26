@@ -169,21 +169,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     position: absolute;
     transform: scale(0);
     transition: all 1.0s forwards;
 }
 
 .slide img {
-    width: 60%;
+    width: 80%;
     height: 70%;
     padding: 20px 50px;
 }
 
 .slide p {
-    width: 50%;
-    height: 70%;
-    padding: 50px 100px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 35px;
+    text-decoration: underline;
 }
 
 .nav label {
