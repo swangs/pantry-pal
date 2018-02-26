@@ -53,7 +53,7 @@ export class SignupComponent implements OnInit {
 
   demoLogin() {
     const user = {
-      username: "guest",
+      username: "Josh King",
       password: "password"
     };
 
