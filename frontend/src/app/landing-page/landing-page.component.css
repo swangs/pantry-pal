@@ -85,14 +85,14 @@
 .functionality {
   width: 100%;
   min-width: 910px;
-  height: 800px;
+  height: 700px;
   background-color: #fbeec1;
 }
 
 .technologies {
   width: 100%;
   min-width: 910px;
-  height: 660px;
+  height: 600px;
   background-color: #daad86;
   display: flex;
   justify-content: space-around;
@@ -101,7 +101,7 @@
 .technologies img {
   object-fit: contain;
   width: 100%;
-  height: 500px;
+  height: 70%;
   padding: 80px 50px;
   padding-left: 0px;
 }
@@ -167,23 +167,27 @@
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     transform: scale(0);
-    transition: all 1.0s linear;
+    transition: all 1.0s forwards;
 }
 
 .slide img {
-    width: 50%;
-    height: 100%;
+    width: 60%;
+    height: 70%;
+    padding: 20px 50px;
 }
 
 .slide p {
     width: 50%;
-    height: 100%;
+    height: 70%;
+    padding: 50px 100px;
 }
 
 .nav label {
-    width: 200px;
+    width: 150px;
     height: 100%;
     display: none;
     position: absolute;
@@ -194,22 +198,22 @@
     color: #FFF;
     font-size: 120px;
     text-align: center;
-    line-height: 800px;
+    line-height: 700px;
     font-family: "Varela Round", sans-serif;
     background-color: rgba(255, 255, 255, .3);
     text-shadow: 0px 0px 15px rgb(119, 119, 119);
 }
 
-.slide:hover + .nav label { opacity: 0.3; }
+.slide:hover + .nav label { opacity: 0.1; }
 
 .nav label:hover { opacity: 1; }
 
 .nav .next { right: 0; }
 
-input:checked + .slide-container  .slide {
+input:checked + .slide-container .slide {
     opacity: 1;
     transform: scale(1);
-    transition: opacity 1s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 input:checked + .slide-container .nav label { display: block; }
