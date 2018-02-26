@@ -19,6 +19,7 @@ mongoose.connection.on('error', err => {
 const app = express();
 
 const users = require('./server/routes/users');
+const recipes = require('./server/routes/recipes');
 
 const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -37,6 +38,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/users', users);
+app.use('/api/recipes', recipes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
