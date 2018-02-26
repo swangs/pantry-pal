@@ -2,14 +2,18 @@
   margin-top: 50px;
   padding: 100px 0px;
   width: 100%;
-  /* min-width: 1100px; */
+  min-width: 1100px;
   height: 500px;
   background-color: #659DBD;
   color: white;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-image: url(https://images.unsplash.com/photo-1503767849114-976b67568b02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=834896599ce28318d8bc1500ad27112a&auto=format&fit=crop&w=1350&q=80);
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(https://images.unsplash.com/photo-1503767849114-976b67568b02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=834896599ce28318d8bc1500ad27112a&auto=format&fit=crop&w=1350&q=80);
   background-size: cover;
 }
 
@@ -84,19 +88,18 @@
 
 .functionality {
   width: 100%;
-  /* min-width: 910px; */
-  height: 800px;
+  min-width: 1100px;
+  height: 600px;
   background-color: #fbeec1;
 }
 
 .technologies {
   width: 100%;
-  /* min-width: 910px; */
+  min-width: 1100px;
   height: 660px;
   background-color: #daad86;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
 }
 
 .technologies p {
@@ -116,13 +119,11 @@
 .technologies img {
   object-fit: contain;
   width: 100%;
-  /* height: 500px; */
-  /* padding: 80px 50px; */
-  /* padding-left: 0px; */
 }
 
 .footer {
   width: 100%;
+  min-width: 1100px;
   height: 100px;
   background-color: #8d8741;
   color: white;
@@ -142,8 +143,7 @@
 }
 
 .footer div p {
-  /* padding: 20px 70px; */
-  margin-left: 50px;
+  margin: 10px 50px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 35px;
 }
@@ -191,15 +191,25 @@
 }
 
 .slide img {
-    width: 60%;
+    width: 58%;
     height: 70%;
-    margin: 20px 50px;
+    margin: 100px;
+    margin-left: 0px;
 }
 
-.slide p {
-    width: 50%;
+.slide ul {
+    width: 52%;
     height: 70%;
-    margin: 50px 100px;
+    margin: 100px;
+    margin-right: 0px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 30px;
+}
+
+.slide ul li {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 25px;
+    margin: 20px;
 }
 
 .nav label {
@@ -214,7 +224,7 @@
     color: white;
     font-size: 150px;
     text-align: center;
-    line-height: 700px;
+    line-height: 600px;
     font-family: "Varela Round", sans-serif;
     /* background-color: rgba(204, 203, 203, 0.2); */
     text-shadow: 0px 0px 15px rgb(209, 203, 203);
