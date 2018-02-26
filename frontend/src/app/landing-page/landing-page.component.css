@@ -197,13 +197,19 @@
     margin-left: 0px;
 }
 
-.slide p {
+.slide ul {
     width: 52%;
     height: 70%;
     margin: 100px;
     margin-right: 0px;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 30px;
+}
+
+.slide ul li {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 25px;
+    margin: 20px;
 }
 
 .nav label {
