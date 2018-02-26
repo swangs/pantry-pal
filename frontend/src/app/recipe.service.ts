@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { mashapeKey } from './api';
 
 import { Recipe } from './data/recipes';
 import { INGREDIENTS } from './data/ingredients';
