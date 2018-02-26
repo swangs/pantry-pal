@@ -11,8 +11,8 @@ import { AuthService } from '../auth.service';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    public authService: AuthService,
+    public router: Router
   ) { }
   title = 'Pantry Pal';
 
