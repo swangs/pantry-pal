@@ -85,14 +85,14 @@
 
 .functionality {
   width: 100%;
-  min-width: 910px;
+  /* min-width: 910px; */
   height: 800px;
   background-color: #fbeec1;
 }
 
 .technologies {
   width: 100%;
-  min-width: 910px;
+  /* min-width: 910px; */
   height: 660px;
   background-color: #daad86;
   display: flex;
@@ -151,7 +151,8 @@
 }
 
 .footer div p {
-  padding: 20px 70px;
+  /* padding: 20px 70px; */
+  margin-left: 50px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 35px;
 }
