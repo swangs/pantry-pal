@@ -11,7 +11,7 @@
 # Features
 
 ## Ingredient Search
-Users are able to add ingredients in their house. The results are updated everytime the user adds or deletes an ingredient from their list. Recipes are sorted based on the least ingredients they are missing. 
+Users are able to add ingredients in their house. The results are updated every time the user adds or deletes an ingredient from their list. Recipes are sorted based on the least ingredients they are missing.
 
 ![alt text](https://i.imgur.com/dkVsGBd.gif "search ingredients")
 
@@ -20,7 +20,7 @@ One concern during the creation of our web application was the security of the A
 
 Originally, the Angular frontend handled the external API requests, but risked malicious users grabbing the API key for their own purposes. The application was then refactored to use a backend route which has access to `process.env` variables to keep the API key safe. Because GET requests do not normally carry bodies, recipe IDs and ingredients were sent through wild card params and queries.
 
-For example: 
+For example:
 ```typescript
 // recipe.service.ts
   getRecipe(id: number): Observable<Recipe> {
@@ -48,6 +48,8 @@ router.get('/:id', (req, res) => {
     }));
 });
 ```
+## Modular Angular Components
+A particular issue we ran into while building our Angular components was Data Binding. Coming from a React-Redux background, passing data and functions between components without a global state or a container mapping props and dispatches was troublesome at first.  After sifting through documentation and clearing out bugs, we had fully functional modular components.
 
 # Future Plans
 * Users can favorite recipes for future use
