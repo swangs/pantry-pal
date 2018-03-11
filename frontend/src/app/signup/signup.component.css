@@ -189,7 +189,10 @@ input[type=submit], input[type=reset] {
   cursor: pointer;
 }
 
+.demo-login:hover {
+	opacity: 1;
+}
+
 .close-button:hover {
-	cursor: pointer;
-	opacity: 1.0;
+	opacity: 1;
 }
