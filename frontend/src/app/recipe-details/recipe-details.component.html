@@ -30,15 +30,12 @@
       <p>Weight Watcher Smart Points: {{recipe.weightWatcherSmartPoints}}</p>
       <hr>
       <p>Caloric Breakdown</p>
-      <!-- <li *ngFor="let caloricBreakdown of recipe.nutrition.caloricBreakdown"> -->
-        <p>Fat: {{recipe.nutrition.caloricBreakdown.percentFat}}%</p>
-        <p>Carbs: {{recipe.nutrition.caloricBreakdown.percentCarbs}}%</p>
-        <p>Protein: {{recipe.nutrition.caloricBreakdown.percentProtein}}%</p>
-      <!-- </li> -->
+      <p>Fat: {{recipe.nutrition.caloricBreakdown.percentFat}}%</p>
+      <p>Carbs: {{recipe.nutrition.caloricBreakdown.percentCarbs}}%</p>
+      <p>Protein: {{recipe.nutrition.caloricBreakdown.percentProtein}}%</p>
       <hr>
       <li *ngFor="let nutrient of recipe.nutrition.nutrients">
         <p>{{nutrient.title}}: {{nutrient.amount}}{{nutrient.unit}} ({{nutrient.percentOfDailyNeeds}}% DV)</p>
-        <!-- <p>({{nutrient.percentOfDailyNeeds}}% Daily Value)</p> -->
       </li>
     </ul>
   </div>

@@ -1,7 +1,7 @@
 p {
   font-weight: 400;
   font-size: 18px;
-  color: #659DBD;
+  color: #232323;
   margin: 15px 0px;
 }
 
@@ -49,6 +49,7 @@ button {
 }
 
 .recipe-main {
+  width: 100%;
   padding: 0px 30px;
   background: #8D874125;
 }

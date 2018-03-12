@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tokenNotExpired } from 'angular2-jwt';
 
@@ -9,18 +9,26 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  localhost() {
+    if (isDevMode()) {
+      return 'http://localhost:3000/';
+    } else {
+      return '';
+    }
+  }
+
   signupUser(user) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post('api/users/', user, { headers });
+    return this.http.post(`${this.localhost()}api/users/`, user, { headers });
   }
 
   loginUser(user) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post('api/users/login', user, { headers });
+    return this.http.post(`${this.localhost()}api/users/login`, user, { headers });
   }
 
   userPage() {
@@ -31,7 +39,7 @@ export class AuthService {
       'Authorization': this.authToken
     });
 
-    return this.http.get('api/users/user', { headers });
+    return this.http.get(`${this.localhost()}api/users/user`, { headers });
   }
 
   storeUserData(token, user) {

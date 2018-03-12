@@ -15,22 +15,5 @@ export class RecipesComponent implements OnInit {
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-    // this.getRecipes();
-    // this.interval = setInterval(() => {
-    //      // this.refreshData();
-    //      console.log(this.recipes);
-    //  }, 5000);
   }
-
-  // refreshData(){
-  //     this.recipeService.getRecipes(this.ingredients)
-  //         .subscribe(data => {
-  //             this.recipes = data;
-  //         });
-  // }
-
-  // getRecipes(): void {
-  //   this.recipeService.getRecipes()
-  //     .subscribe(recipes => this.recipes = recipes);
-  // }
 }

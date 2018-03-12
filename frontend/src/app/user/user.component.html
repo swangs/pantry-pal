@@ -1,7 +1,6 @@
 <div class="user-page">
   <div class="ingredients">
     <h1 *ngIf="user">{{user.username}}</h1>
-    <!-- <app-ingredients [ingredients]="ingredients"></app-ingredients> -->
     <h2 class="ingredients-title">My Ingredients</h2 >
     <ul class="ingredients-list">
       <li class="ingredients-item" *ngFor="let ingredient of ingredients">
