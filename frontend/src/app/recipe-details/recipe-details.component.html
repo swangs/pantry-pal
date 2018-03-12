@@ -11,12 +11,15 @@
   </div>
   <div class="recipe-main">
     <h3 class="directions-title">Directions</h3>
+    <ul *ngIf="recipe.instructions === null">
+      <p>"test"</p>
+    </ul>
     <ul *ngFor="let instructions of recipe.analyzedInstructions">
       <li *ngFor="let steps of instructions.steps">
         <p>{{steps.step}}</p>
       </li>
-      <p>For more details, visit <a href="{{recipe.sourceUrl}}" target="_blank">{{recipe.sourceName}}</a></p>
     </ul>
+    <p>For more details, visit <a href="{{recipe.sourceUrl}}" target="_blank">{{recipe.sourceName}}</a></p>
     <button (click)="goBack()">go back</button>
   </div>
   <div class="additional-info">
