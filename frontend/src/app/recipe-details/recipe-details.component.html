@@ -12,7 +12,7 @@
   <div class="recipe-main">
     <h3 class="directions-title">Directions</h3>
     <ul *ngIf="recipe.instructions === null">
-      <p>"test"</p>
+      <p>Opps... Directions could not be found.</p>
     </ul>
     <ul *ngFor="let instructions of recipe.analyzedInstructions">
       <li *ngFor="let steps of instructions.steps">
